@@ -1,6 +1,8 @@
 <div class="container">
   <h2>Galleries {{galleries.length}}</h2>
-  <p class="form-group" ng-repeat="gallery in galleries">
+  <div class="form-group" ng-repeat="gallery in galleries">
     {{gallery.name}}
-  </p>
+    <cl-image public-id="{{gallery.images[0].public_id}}" class="thumbnail inline" crop="scale" height="150" width="150" format="jpg"/>
+  </div>
+
 </div>

@@ -16,7 +16,9 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'leexplorerConstants'
+    'leexplorerConstants',
+    'cloudinary',
+    'angular-lodash'
   ])
   .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider
@@ -35,6 +37,9 @@ angular
       .otherwise({
         redirectTo: '/login'
       });
+
+    // Cloudinary
+    $.cloudinary.config().cloud_name = 'leexplorer';
 
     // Cookies for CORS
     $httpProvider.defaults.withCredentials = true;
