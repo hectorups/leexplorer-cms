@@ -28,11 +28,10 @@ angular.module('leexplorerFrontendApp')
       var logout = function () {
         $http({url: API.backend + '/logout', 
           method: 'DELETE'
-        }).
-          success(function () {
-            SessionService.destroy();
-            $location.url('/login');
-          });
+        });
+        
+        SessionService.destroy();
+        $location.url('/login');
       };
 
       return {

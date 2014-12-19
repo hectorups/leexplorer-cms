@@ -16,14 +16,12 @@ angular.module('leexplorerFrontendApp')
       setLogged: function(value){
         $cookies.isLogged = value ? '1' : '';
       },
-      name: $cookies.name,
       user_id: $cookies.user_id,
       setUserId: function(user_id){
         this.user_id = $cookies.user_id = user_id;
       },
       destroy: function () {
-        this.name = '';
-        this.user_id = '';
+        this.setUserId(null)
         this.setLogged(false);
       }
     };
