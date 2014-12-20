@@ -1,9 +1,28 @@
 <div class="container">
-  <h2>Galleries {{galleries.length}}</h2>
-  <div class="form-group" ng-repeat="gallery in galleries">
-    {{gallery.name}} 
-    <a class="btn btn-default btn-xs h2-button" ng-href="#/gallery/{{gallery.id}}"> edit </a>
-    <cl-image public-id="{{gallery.images[0].public_id}}" class="thumbnail inline" crop="scale" height="150" width="150" format="jpg"/>
+  <h2>Your Galleries ({{galleries.length}})</h2>
+  <div class="row">
+
+    <div class="col-md-4" ng-repeat="gallery in galleries">
+        
+<!--         <a class="col-centered" ng-href="#/gallery/{{gallery.id}}">
+          <div>
+            <cl-image public-id="{{gallery.images[0].public_id}}" crop="fill" height="150" width="200" format="jpg"/>
+          </div>
+          <p> {{gallery.name}} </p>
+        </a> -->
+        <div class="galleryGridItem">
+          <a ng-href="#/gallery/{{gallery.id}}">
+            <div class="imgthumb img-responsive">
+              <cl-image public-id="{{gallery.images[0].public_id}}" crop="fill" height="150" width="200" format="jpg"/>
+            </div>
+            <div class="caption">
+              <h5> {{gallery.name}} </h5>
+            </div>
+          </a>
+        </div>
+        
+    </div>
+
   </div>
 
 </div>

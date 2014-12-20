@@ -15,6 +15,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="stylesheet" href="styles/gallery.css">
@@ -34,7 +35,7 @@
           <li ng-class="{'active': $location.url() == '/about'}"><a ng-href="#/about">About</a></li>
           <li><a ng-click='AuthService.logout()'>Logout</a></li>
         </ul>
-        <h3 class="text-muted">Leexplorer CMS</h3>
+        <h3 class="text-muted">Leexplorer Dashboard</h3>
       </div>
 
       <div ng-view=""></div>
