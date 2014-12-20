@@ -10,9 +10,11 @@
 angular.module('leexplorerFrontendApp')
   .controller('GalleryCtrl', ['$scope', '$routeParams', '$location', 'Gallery', function ($scope, $routeParams, $location, Gallery) {
     $scope.gallery = Gallery.get({id: $routeParams.id});
-    $scope.isEditing = false
+    $scope.editingGallery = {};
+    $scope.isEditing = false;
 
     $scope.edit = function() {
+      $scope.editingGallery = angular.copy($scope.gallery);
   		$scope.isEditing = true;
   	};
 
@@ -21,8 +23,9 @@ angular.module('leexplorerFrontendApp')
   	};
 
     $scope.submit = function() {
-      delete $scope.gallery.artworks;
-      $scope.gallery.$save(function() {
+      delete $scope.editingGallery.artworks;
+      $scope.editingGallery.$save(function() {
+        $scope.gallery = $scope.editingGallery;
         $scope.isEditing = false;
       });
     };
