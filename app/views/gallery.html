@@ -10,7 +10,7 @@
 	<div class="row" ng-switch="isEditing">
 		<h4>Address</h4>
 		<div ng-switch-when="false">{{gallery.address}}</div>
-		<input type="text"class="form-control" ng-switch-when="true" value="{{gallery.address}}" ng-model="gallery.address"/>
+		<input class="form-control" type="text" ng-switch-when="true" value="{{gallery.address}}" ng-model="gallery.address" geocomplete="{ details: '#gallery_form' }" model="$parent">	
 	</div>
 
 	<div class="row" ng-switch="isEditing">
