@@ -1,7 +1,8 @@
 <div class="container">
   <h2>Galleries {{galleries.length}}</h2>
   <div class="form-group" ng-repeat="gallery in galleries">
-    {{gallery.name}}
+    {{gallery.name}} 
+    <a class="btn btn-default btn-xs h2-button" ng-href="#/gallery/{{gallery.id}}"> edit </a>
     <cl-image public-id="{{gallery.images[0].public_id}}" class="thumbnail inline" crop="scale" height="150" width="150" format="jpg"/>
   </div>
 

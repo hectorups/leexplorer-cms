@@ -34,6 +34,10 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/gallery/:id', {
+        templateUrl: 'views/gallery.html',
+        controller: 'GalleryCtrl'
+      })
       .otherwise({
         redirectTo: '/login'
       });
