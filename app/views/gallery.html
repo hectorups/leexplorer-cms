@@ -1,10 +1,14 @@
 <form id="gallery_form" class="gallery">	
-	<div class="row gallery-name" ng-switch="isEditing">
+	<div class="row gallery-name">
 		<span class="wrap-title name">{{gallery.name}}</span>
 
-		<button class="btn btn-default btn-xs h2-button" ng-switch-when="false" ng-click="editVenue()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+		<button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 
-		<button class="btn btn-default btn-xs h2-button" ng-switch-when="true" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> Cancel </button>
+		<button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="delete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+
+		<button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> Save</button>
+
+		<button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> Cancel </button>
 	</div>
 
 	<div class="row" ng-switch="isEditing">
