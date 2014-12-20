@@ -1,10 +1,28 @@
 <form id="gallery_form" class="gallery">	
+	
+	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+		{{alert.msg}}
+	</alert>
+
+	<script type="text/ng-template" id="confirmDeleteModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">Danger!</h3>
+    </div>
+    <div class="modal-body">
+      <p> Confirm you want to delete <b>{{gallery.name}}</b>.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" ng-click="ok()">Delete</button>
+      <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
+
 	<div class="row gallery-name">
 		<span class="wrap-title name">{{gallery.name}}</span>
 
 		<button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
 
-		<button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="delete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+		<button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
 
 		<button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> Save</button>
 

@@ -18,7 +18,8 @@ angular
     'ngTouch',
     'leexplorerConstants',
     'cloudinary',
-    'angular-lodash'
+    'angular-lodash',
+    'ui.bootstrap'
   ])
   .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider
