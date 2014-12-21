@@ -33,7 +33,7 @@ angular.module('leexplorerFrontendApp')
 
     $scope.delete = function() {
       $scope.artwork.$delete(function() {
-        $location.path( "/home" );
+        $location.path( "/gallery/" + $scope.artwork.gallery_id );
       });
     };
 
