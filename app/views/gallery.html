@@ -1,58 +1,84 @@
-<form id="gallery_form" class="gallery">	
-	
-	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
-		{{alert.msg}}
-	</alert>
+<tabset>
+  <tab heading="Info">
+    <form id="gallery_form" class="gallery">	
+    	
+    	<alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+    		{{alert.msg}}
+    	</alert>
 
-	<script type="text/ng-template" id="confirmDeleteModalContent.html">
-    <div class="modal-header">
-      <h3 class="modal-title">Danger!</h3>
+    	<script type="text/ng-template" id="confirmDeleteModalContent.html">
+        <div class="modal-header">
+          <h3 class="modal-title">Danger!</h3>
+        </div>
+        <div class="modal-body">
+          <p> Confirm you want to delete <b>{{gallery.name}}</b>.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" ng-click="ok()">Delete</button>
+          <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+      </script>
+
+    	<div class="row gallery-name">
+    		<span class="wrap-title name">{{gallery.name}}</span>
+
+    		<button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+
+    		<button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+
+    		<button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> Save</button>
+
+    		<button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> Cancel </button>
+    	</div>
+
+    	<div class="row" ng-switch="isEditing">
+    		<h4>Address</h4>
+    		<div ng-switch-when="false">{{gallery.address}}</div>
+    		<input class="form-control" type="text" ng-switch-when="true" value="{{editingGallery.address}}" ng-model="editingGallery.address" geocomplete="{ details: '#gallery_form' }" model="$parent">	
+    	</div>
+
+    	<div class="row" ng-switch="isEditing">
+    		<h4>Description</h4>
+    		<div ng-switch-when="false" ng-bind-html="gallery.description | nl2br"></div>
+    		<textarea  rows="15" class="form-control" ng-switch-when="true" value="{{editingGallery.description}}" ng-model="editingGallery.description"/>
+    	</div>
+
+    	<div class="row">
+    		<div class="col-md-6 left-col" ng-switch="isEditing">
+    			<h4>Hours</h4>
+    			<div ng-switch-when="false" ng-bind-html="gallery.hours | nl2br"></div>
+    			<textarea rows="3" class="form-control" ng-switch-when="true" value="{{editingGallery.hours}}" ng-model="editingGallery.hours"/>
+    		</div>
+
+    		<div class="col-md-6" ng-switch="isEditing">
+    			<h4>Price Description</h4>
+    			<div ng-switch-when="false" ng-bind-html="gallery.price_description | nl2br"></div>
+    			<textarea rows="3" class="form-control" ng-switch-when="true" value="{{editingGallery.price_description}}" ng-model="editingGallery.price_description"/>
+    		</div>
+    	</div>
+
+    </form>
+  </tab>
+
+  <tab heading="Artworks">
+      <div class="row">
+
+      <div class="col-md-4" ng-repeat="artwork in artworks">
+          
+        <div class="artworkGridItem">
+          <a ng-href="#/artwork/{{artwork.id}}">
+            <div class="imgthumb img-responsive">
+              <cl-image public-id="{{artwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
+            </div>
+            <div class="caption">
+              <h5> {{artwork.name}} </h5>
+            </div>
+          </a>
+        </div>
+          
+      </div>
+
     </div>
-    <div class="modal-body">
-      <p> Confirm you want to delete <b>{{gallery.name}}</b>.</p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-danger" ng-click="ok()">Delete</button>
-      <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-    </div>
-  </script>
+  </tab>
 
-	<div class="row gallery-name">
-		<span class="wrap-title name">{{gallery.name}}</span>
-
-		<button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
-
-		<button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
-
-		<button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> Save</button>
-
-		<button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> Cancel </button>
-	</div>
-
-	<div class="row" ng-switch="isEditing">
-		<h4>Address</h4>
-		<div ng-switch-when="false">{{gallery.address}}</div>
-		<input class="form-control" type="text" ng-switch-when="true" value="{{editingGallery.address}}" ng-model="editingGallery.address" geocomplete="{ details: '#gallery_form' }" model="$parent">	
-	</div>
-
-	<div class="row" ng-switch="isEditing">
-		<h4>Description</h4>
-		<div ng-switch-when="false" ng-bind-html="gallery.description | nl2br"></div>
-		<textarea  rows="15" class="form-control" ng-switch-when="true" value="{{editingGallery.description}}" ng-model="editingGallery.description"/>
-	</div>
-
-	<div class="row">
-		<div class="col-md-6 left-col" ng-switch="isEditing">
-			<h4>Hours</h4>
-			<div ng-switch-when="false" ng-bind-html="gallery.hours | nl2br"></div>
-			<textarea rows="3" class="form-control" ng-switch-when="true" value="{{editingGallery.hours}}" ng-model="editingGallery.hours"/>
-		</div>
-
-		<div class="col-md-6" ng-switch="isEditing">
-			<h4>Price Description</h4>
-			<div ng-switch-when="false" ng-bind-html="gallery.price_description | nl2br"></div>
-			<textarea rows="3" class="form-control" ng-switch-when="true" value="{{editingGallery.price_description}}" ng-model="editingGallery.price_description"/>
-		</div>
-	</div>
-
-</form>
+</tabset>

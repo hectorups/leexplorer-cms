@@ -10,6 +10,7 @@
 angular.module('leexplorerFrontendApp')
   .controller('GalleryCtrl', ['$scope', '$routeParams', '$location', 'Gallery', '$modal', function ($scope, $routeParams, $location, Gallery, $modal) {
     $scope.gallery = Gallery.get({id: $routeParams.id});
+    $scope.artworks = Gallery.artworks({id: $routeParams.id});
     $scope.editingGallery = {};
     $scope.isEditing = false;
     $scope.alerts = [];
