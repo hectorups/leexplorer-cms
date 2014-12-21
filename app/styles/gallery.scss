@@ -1,3 +1,5 @@
+@import "compass/css3";
+
 #gallery_form {
 	 padding: 20px;
 
@@ -34,7 +36,6 @@
 
   .caption {
     padding:10px;
-    background-color:rgba(0,0,0,0.7);
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -42,6 +43,7 @@
     overflow: hidden;
     font-size: 11px;
     color: #FFF;
+    @include background-image(linear-gradient(transparent, rgba(0,0,0,0.5)));
 
     h5 {
       margin-top: 0px;
