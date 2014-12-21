@@ -34,10 +34,9 @@ angular.module('leexplorerFrontendApp')
     };
 
     $scope.delete = function() {
-      return;
-      // $scope.gallery.$delete(function() {
-      //   $location.path( "/home" );
-      // });
+      $scope.gallery.$delete(function() {
+        $location.path( "/home" );
+      });
     };
 
     $scope.closeAlert = function(index) {
@@ -46,12 +45,12 @@ angular.module('leexplorerFrontendApp')
 
     $scope.confirmDelete = function() {
       var modalInstance = $modal.open({
-        templateUrl: 'confirmDeleteModalContent.html',
-        controller: 'ConfirmDeleteModalCtrl',
+        templateUrl: 'views/confirmmodal.html',
+        controller: 'ConfirmmodalCtrl',
         size: 'sm',
         resolve: {
-          gallery: function () {
-            return $scope.gallery;
+          name: function () {
+            return $scope.gallery.name;
           }
         }
       });
@@ -63,14 +62,4 @@ angular.module('leexplorerFrontendApp')
       });
     };
 
-}]).controller('ConfirmDeleteModalCtrl', [ '$scope', '$modalInstance', 'gallery', function ($scope, $modalInstance, gallery) {
-  $scope.gallery = gallery;
-
-  $scope.ok = function () {
-    $modalInstance.close(true);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
-  };
-}]);
+}])

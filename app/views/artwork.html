@@ -1,2 +1,39 @@
-<h4>{{artwork.name}}</h4>
-<p>{{artwork.description}}</p>
+<form id="artwork_form">  
+      
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
+    {{alert.msg}}
+  </alert>
+
+  <script type="text/ng-template" id="confirmDeleteArtworkModalContent.html">
+    <div class="modal-header">
+      <h3 class="modal-title">Danger!</h3>
+    </div>
+    <div class="modal-body">
+      <p> Confirm you want to delete <b>{{artwork.name}}</b>.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" ng-click="ok()">Delete</button>
+      <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+    </div>
+  </script>
+
+  <div class="row artwork-name">
+    <span class="wrap-title name">{{artwork.name}}</span>
+
+    <button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"></span> Edit</button>
+
+    <button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+
+    <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> Save</button>
+
+    <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> Cancel </button>
+  </div>
+
+
+  <div class="row" ng-switch="isEditing">
+    <h4>Description</h4>
+    <div ng-switch-when="false" ng-bind-html="artwork.description | nl2br"></div>
+    <textarea  rows="15" class="form-control" ng-switch-when="true" value="{{editingArtwork.description}}" ng-model="editingArtwork.description"/>
+  </div>
+
+</form>
