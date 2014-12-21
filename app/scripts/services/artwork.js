@@ -9,8 +9,5 @@
  */
 angular.module('leexplorerFrontendApp')
   .factory('Artwork', function ($resource) {
-    return $resource('http://localhost:1337/artwork/:id', { id: '@id' }, {
-      update: {
-        method: 'PUT'
-      }});
+    return $resource('http://localhost:1337/artwork/:id', { id: '@id' }, {});
   });

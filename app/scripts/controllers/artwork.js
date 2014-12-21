@@ -24,6 +24,7 @@ angular.module('leexplorerFrontendApp')
     };
 
     $scope.submit = function() {
+      delete $scope.editingArtwork.gallery;
       $scope.editingArtwork.$save(function() {
         $scope.artwork = $scope.editingArtwork;
         $scope.isEditing = false;
