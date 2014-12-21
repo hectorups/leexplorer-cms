@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Leexplorer</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -15,6 +15,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/colors.css">
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/login.css">
@@ -35,6 +36,7 @@
           <li ng-class="{'active': $location.url() == '/about'}"><a ng-href="#/about">About</a></li>
           <li><a ng-click='AuthService.logout()'>Logout</a></li>
         </ul>
+        <img src="images/logo.png" class="nav pull-left"/>
         <h3 class="text-muted">Leexplorer Dashboard</h3>
       </div>
 

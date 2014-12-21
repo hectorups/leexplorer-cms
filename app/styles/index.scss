@@ -3,6 +3,8 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/font
 @import "bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
+@import "colors.scss";
+
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -32,8 +34,19 @@ body {
   h3 {
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 40px;
-    padding-bottom: 19px;
+    line-height: 46px;
+    padding-bottom: 10px;
+    color: $le-blue;
+    font-size: 30px;
+  }
+
+  img {
+    width: 45px;
+    margin-right: 10px;
+  }
+
+  ul {
+    margin-top: 6px;
   }
 }
 
@@ -71,7 +84,7 @@ body {
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
-    max-width: 730px;
+    max-width: 800px;
   }
 
   /* Remove the padding we set earlier */
