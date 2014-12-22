@@ -50,4 +50,27 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="col-md-6 left-col" ng-switch="isEditing">
+      <h4>Image</h4>
+      <div ng-switch-when="false">
+        <cl-image class="thumbnail" public-id="{{artwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
+      </div>
+
+      <div ng-switch-when="true" class="form_controls">
+        <div>
+          <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
+        </div>
+        <div class="upload_button_holder">
+          <div href="#" class="btn btn-primary " ng-file-select="onFileSelect($files)" data-multiple="false" title="aaaa" onclick="this.value = null">Upload Image</div>
+        </div>
+        <div class="status">{{status}}</div>
+        <div class="progress-bar">
+          <div class="progress" style="width: {{progress}}%" ng-init="progress=0"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </form>

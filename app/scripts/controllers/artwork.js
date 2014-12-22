@@ -8,7 +8,8 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('ArtworkCtrl', ['$scope', '$routeParams', '$location', 'Artwork', '$modal', function ($scope, $routeParams, $location, Artwork, $modal) {
+  .controller('ArtworkCtrl', ['$scope', '$routeParams', '$location', 'Artwork', '$modal', '$upload', 
+  function ($scope, $routeParams, $location, Artwork, $modal, $upload) {
     $scope.artwork = Artwork.get({id: $routeParams.id});
     $scope.editingArtwork = {};
     $scope.isEditing = false;
@@ -58,6 +59,22 @@ angular.module('leexplorerFrontendApp')
         if(confirmed) {
           $scope.delete();
         }
+      });
+    };
+
+    $scope.onFileSelect = function($files) {
+      var file = $files[0];
+      $scope.upload = $upload.upload({
+        url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
+        data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.editingArtwork.gallery_id},
+        withCredentials: false,
+        file: file
+      }).progress(function (e) {
+        $scope.progress = Math.round((e.loaded * 100.0) / e.total);
+        $scope.status = "Uploading... " + $scope.progress + "%";
+      }).success(function (data, status, headers, config) {
+        console.log(data);
+        $scope.editingArtwork.image = data;
       });
     };
 }])

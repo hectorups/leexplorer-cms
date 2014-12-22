@@ -19,7 +19,8 @@ angular
     'leexplorerConstants',
     'cloudinary',
     'angular-lodash',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'angularFileUpload'
   ])
   .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider
@@ -49,6 +50,7 @@ angular
 
     // Cloudinary
     $.cloudinary.config().cloud_name = 'leexplorer';
+    $.cloudinary.config().upload_preset = 'y22pdzlg';
 
     // Cookies for CORS
     $httpProvider.defaults.withCredentials = true;
