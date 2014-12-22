@@ -85,15 +85,6 @@ angular.module('leexplorerFrontendApp')
       });
     };
 
-    $scope.audio = null;
-    $scope.$watch('artwork', function(newVal, oldVal) {
-      if(newVal && newVal.audio) {
-        $scope.audio = ngAudio.load($.cloudinary.url_internal(newVal.audio.public_id, {resource_type: 'raw'})); 
-      } else {
-        $scope.audio = null;
-      }
-    }, true);
-
     $scope.onAudioSelect = function($files) {
       var file = $files[0];
       $scope.audio_upload = $upload.upload({
@@ -112,14 +103,5 @@ angular.module('leexplorerFrontendApp')
         $scope.$apply();
       });
     };
-
-    $scope.editingAudio = null;
-    $scope.$watch('editingArtwork', function(newVal, oldVal) {
-      if(newVal && newVal.audio) {
-        $scope.editingAudio = ngAudio.load($.cloudinary.url_internal(newVal.audio.public_id, {resource_type: 'raw'})); 
-      } else {
-        $scope.editingAudio = null;
-      }
-    }, true);
 
 }])
