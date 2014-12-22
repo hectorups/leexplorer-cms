@@ -62,24 +62,40 @@
           <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
         </div>
         <div class="upload_button_holder">
-          <div href="#" class="btn btn-primary " ng-file-select="onFileSelect($files)" data-multiple="false" title="aaaa" onclick="this.value = null">Upload Image</div>
+          <div href="#" class="btn btn-primary " ng-file-select="onImageSelect($files)" data-multiple="false" title="aaaa" onclick="this.value = null">Upload Image</div>
         </div>
-        <div class="status">{{status}}</div>
-        <div class="progress-bar">
-          <div class="progress" style="width: {{progress}}%" ng-init="progress=0"></div>
-        </div>
+        <progressbar ng-show="image_progress > 0" value="image_progress"> <span class="status">{{image_status}}</span> </progressbar>
       </div>
     </div>
 
     <div class="col-md-6" ng-switch="isEditing">
       <h4>Audio</h4>
-      <div class="row audio-player" ng-show="audio">
-        <div class="col-md-10">
-          <input class="form-control ng-pristine ng-valid" type="range" min="0" max="1" step="0.01" ng-model="audio.progress"/>
+      <div ng-switch-when="false">
+        <div class="row audio-player" ng-show="audio">
+          <div class="col-md-10">
+            <input class="form-control ng-pristine ng-valid" type="range" min="0" max="1" step="0.01" ng-model="audio.progress"/>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary" ng-click='audio.paused ? audio.play() : audio.pause()'><span ng-class="'glyphicon glyphicon-' + (audio.paused ? 'play' : 'pause')"/></button>
+          </div>
         </div>
-        <div class="col-md-2">
-          <button class="btn btn-primary" ng-click='audio.paused ? audio.play() : audio.pause()'><span ng-class="'glyphicon glyphicon-' + (audio.paused ? 'play' : 'pause')"/></button>
+        <p ng-hide="audio"> This artwork doesn't have audio yet. </p> 
+      </div>
+
+      <div ng-switch-when="true" class="form_controls">
+        <div class="row audio-player" ng-show="editingAudio">
+          <div class="col-md-10">
+            <input class="form-control ng-pristine ng-valid" type="range" min="0" max="1" step="0.01" ng-model="editingAudio.progress"/>
+          </div>
+          <div class="col-md-2">
+            <button class="btn btn-primary" ng-click='editingAudio.paused ? editingAudio.play() : editingAudio.pause()'><span ng-class="'glyphicon glyphicon-' + (editingAudio.paused ? 'play' : 'pause')"/></button>
+          </div>
         </div>
+
+        <div class="upload_button_holder">
+          <div href="#" class="btn btn-primary" ng-hide="audio_progress > 0" ng-file-select="onAudioSelect($files)" data-multiple="false" onclick="this.value = null">Upload Audio</div>
+        </div>
+        <progressbar ng-show="audio_progress > 0" value="audio_progress"> <span class="status">{{audio_status}}</span> </progressbar>
       </div>
     </div>
 

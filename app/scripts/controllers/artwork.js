@@ -66,16 +66,19 @@ angular.module('leexplorerFrontendApp')
       });
     };
 
-    $scope.onFileSelect = function($files) {
+    // @todo: all this bellow needs to be dried up into custom directives. Today, I am just happy if 
+    // I wire up everything correctly.
+
+    $scope.onImageSelect = function($files) {
       var file = $files[0];
-      $scope.upload = $upload.upload({
+      $scope.image_upload = $upload.upload({
         url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
         data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.editingArtwork.gallery_id},
         withCredentials: false,
         file: file
       }).progress(function (e) {
-        $scope.progress = Math.round((e.loaded * 100.0) / e.total);
-        $scope.status = "Uploading... " + $scope.progress + "%";
+        $scope.image_progress = Math.round((e.loaded * 100.0) / e.total);
+        $scope.image_status = "Uploading... " + $scope.image_progress + "%";
       }).success(function (data, status, headers, config) {
         console.log(data);
         $scope.editingArtwork.image = data;
@@ -84,11 +87,39 @@ angular.module('leexplorerFrontendApp')
 
     $scope.audio = null;
     $scope.$watch('artwork', function(newVal, oldVal) {
-      if(newVal && newVal.image) {
+      if(newVal && newVal.audio) {
         $scope.audio = ngAudio.load($.cloudinary.url_internal(newVal.audio.public_id, {resource_type: 'raw'})); 
       } else {
         $scope.audio = null;
       }
-    });
+    }, true);
+
+    $scope.onAudioSelect = function($files) {
+      var file = $files[0];
+      $scope.audio_upload = $upload.upload({
+        url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
+        data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.editingArtwork.gallery_id},
+        withCredentials: false,
+        file: file
+      }).progress(function (e) {
+        $scope.audio_progress = Math.round((e.loaded * 100.0) / e.total);
+        $scope.audio_status = "Uploading... " + $scope.audio_progress + "%";
+      }).success(function (data, status, headers, config) {
+        console.log(data);
+        angular.extend(data, {locale: 'en'});
+        $scope.editingArtwork.audio = data;
+        $scope.audio_progress = 0;
+        $scope.$apply();
+      });
+    };
+
+    $scope.editingAudio = null;
+    $scope.$watch('editingArtwork', function(newVal, oldVal) {
+      if(newVal && newVal.audio) {
+        $scope.editingAudio = ngAudio.load($.cloudinary.url_internal(newVal.audio.public_id, {resource_type: 'raw'})); 
+      } else {
+        $scope.editingAudio = null;
+      }
+    }, true);
 
 }])
