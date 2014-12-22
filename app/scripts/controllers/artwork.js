@@ -8,9 +8,13 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('ArtworkCtrl', ['$scope', '$routeParams', '$location', 'Artwork', '$modal', '$upload', 
-  function ($scope, $routeParams, $location, Artwork, $modal, $upload) {
-    $scope.artwork = Artwork.get({id: $routeParams.id});
+  .controller('ArtworkCtrl', ['$scope', '$routeParams', '$location', 'Artwork', '$modal', '$upload', 'ngAudio', 
+  function ($scope, $routeParams, $location, Artwork, $modal, $upload, ngAudio) {
+    $scope.artwork = null;
+    Artwork.get({id: $routeParams.id}, function(artwork) {
+      $scope.artwork = artwork;
+    });
+
     $scope.editingArtwork = {};
     $scope.isEditing = false;
     $scope.alerts = [];
@@ -77,4 +81,14 @@ angular.module('leexplorerFrontendApp')
         $scope.editingArtwork.image = data;
       });
     };
+
+    $scope.audio = null;
+    $scope.$watch('artwork', function(newVal, oldVal) {
+      if(newVal && newVal.image) {
+        $scope.audio = ngAudio.load($.cloudinary.url_internal(newVal.audio.public_id, {resource_type: 'raw'})); 
+      } else {
+        $scope.audio = null;
+      }
+    });
+
 }])

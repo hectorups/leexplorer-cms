@@ -20,7 +20,8 @@ angular
     'cloudinary',
     'angular-lodash',
     'ui.bootstrap',
-    'angularFileUpload'
+    'angularFileUpload',
+    'ngAudio'
   ])
   .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
     $routeProvider
