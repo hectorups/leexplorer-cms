@@ -66,42 +66,15 @@ angular.module('leexplorerFrontendApp')
       });
     };
 
-    // @todo: all this bellow needs to be dried up into custom directives. Today, I am just happy if 
-    // I wire up everything correctly.
-
-    $scope.onImageSelect = function($files) {
-      var file = $files[0];
-      $scope.image_upload = $upload.upload({
-        url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
-        data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.editingArtwork.gallery_id},
-        withCredentials: false,
-        file: file
-      }).progress(function (e) {
-        $scope.image_progress = Math.round((e.loaded * 100.0) / e.total);
-        $scope.image_status = "Uploading... " + $scope.image_progress + "%";
-      }).success(function (data, status, headers, config) {
-        console.log(data);
-        $scope.editingArtwork.image = data;
-      });
+    $scope.imageUploaded = function(data) {
+      console.log(data);
+      $scope.editingArtwork.image = data;
     };
 
-    $scope.onAudioSelect = function($files) {
-      var file = $files[0];
-      $scope.audio_upload = $upload.upload({
-        url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
-        data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.editingArtwork.gallery_id},
-        withCredentials: false,
-        file: file
-      }).progress(function (e) {
-        $scope.audio_progress = Math.round((e.loaded * 100.0) / e.total);
-        $scope.audio_status = "Uploading... " + $scope.audio_progress + "%";
-      }).success(function (data, status, headers, config) {
-        console.log(data);
-        angular.extend(data, {locale: 'en'});
-        $scope.editingArtwork.audio = data;
-        $scope.audio_progress = 0;
-        $scope.$apply();
-      });
+    $scope.audioUploaded = function(data) {
+      console.log(data);
+      angular.extend(data, {locale: 'en'});
+      $scope.editingArtwork.audio = data;
     };
 
 }])

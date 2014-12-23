@@ -61,10 +61,8 @@
         <div>
           <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
         </div>
-        <div class="upload_button_holder">
-          <div href="#" class="btn btn-primary " ng-file-select="onImageSelect($files)" data-multiple="false" title="aaaa" onclick="this.value = null">Upload Image</div>
-        </div>
-        <progressbar ng-show="image_progress > 0" value="image_progress"> <span class="status">{{image_status}}</span> </progressbar>
+        
+        <le-uploader upload-completed="imageUploaded(data)" tags="artwork.gallery_id"></le-uploader>
       </div>
     </div>
 
@@ -78,10 +76,7 @@
       <div ng-switch-when="true" class="form_controls">
         <le-audio-player ng-show="editingArtwork.audio" artwork="editingArtwork.audio"/></le-audio-player>
 
-        <div class="upload_button_holder">
-          <div href="#" class="btn btn-primary" ng-hide="audio_progress > 0" ng-file-select="onAudioSelect($files)" data-multiple="false" onclick="this.value = null">Upload Audio</div>
-        </div>
-        <progressbar ng-show="audio_progress > 0" value="audio_progress"> <span class="status">{{audio_status}}</span> </progressbar>
+        <le-uploader upload-completed="audioUploaded(data)" tags="artwork.gallery_id"></le-uploader>
       </div>
     </div>
 
