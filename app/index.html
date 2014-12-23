@@ -33,9 +33,9 @@
     <div class="container">
       <div class="header">
         <ul ng-show='SessionService.isLogged()' class="nav nav-pills pull-right">
-          <li ng-class="{'active': $location.url() == '/home'}" ><a ng-href="#/home">Home</a></li>
-          <li ng-class="{'active': $location.url() == '/about'}"><a ng-href="#/about">About</a></li>
-          <li><a ng-click='AuthService.logout()'>Logout</a></li>
+          <li ng-class="{'active': $location.url() == '/home'}" ><a ng-href="#/home" translate="INDEX.HOME"></a></li>
+          <li ng-class="{'active': $location.url() == '/about'}"><a ng-href="#/about" translate="INDEX.ABOUT"></a></li>
+          <li><a ng-click='AuthService.logout()' translate="INDEX.LOGOUT"></a></li>
         </ul>
         <img src="images/logo.png" class="nav pull-left"/>
         <h3 class="text-muted">Leexplorer Dashboard</h3>
@@ -44,7 +44,7 @@
       <div ng-view=""></div>
 
       <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Leexplorer team</p>
+        <p><span class="glyphicon glyphicon-heart"></span> {{'INDEX.FROMLETEAM' | translate}}</p>
       </div>
     </div>
 
@@ -118,6 +118,8 @@
     <script src="bower_components/jquery-geocomplete/jquery.geocomplete.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-audio/app/angular.audio.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

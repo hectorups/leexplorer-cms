@@ -4,33 +4,20 @@
     {{alert.msg}}
   </alert>
 
-  <script type="text/ng-template" id="confirmDeleteArtworkModalContent.html">
-    <div class="modal-header">
-      <h3 class="modal-title">Danger!</h3>
-    </div>
-    <div class="modal-body">
-      <p> Confirm you want to delete <b>{{artwork.name}}</b>.</p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn btn-danger" ng-click="ok()">Delete</button>
-      <button class="btn btn-default" ng-click="cancel()">Cancel</button>
-    </div>
-  </script>
-
   <div class="row artwork-name">
     <span class="wrap-title name">{{artwork.name}}</span>
 
-    <button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"/>Edit</button>
+    <button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"/>{{'ARTWORK.EDIT' | translate}}</button>
 
-    <button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"/>Delete</button>
+    <button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"/>{{'ARTWORK.DELETE' | translate}}</button>
 
-    <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/> Save</button>
+    <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/> {{'ARTWORK.SAVE' | translate}}</button>
 
-    <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> Cancel </button>
+    <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}} </button>
   </div>
 
   <div class="row" ng-switch="isEditing">
-    <h4>Description</h4>
+    <h4>{{'ARTWORK.DESCRIPTION' | translate}}</h4>
     <div ng-switch-when="false" ng-bind-html="artwork.description | nl2br"></div>
     <textarea  placeholder="description" rows="15" class="form-control" ng-switch-when="true" value="{{editingArtwork.description}}" ng-model="editingArtwork.description"/>
   </div>
@@ -43,7 +30,7 @@
     </div>
 
     <div class="col-md-6 left-col" ng-switch="isEditing">
-      <h4>Beacon</h4>
+      <h4>{{'ARTWORK.BEACON' | translate}}</h4>
       <p ng-switch-when="false">{{artwork.major}}-{{artwork.minor}}</p>
       <input type="text" class="majorminor" placeholder="major" ng-switch-when="true" value="{{editingArtwork.major}}" ng-model="editingArtwork.major"/>  
       <input type="text" class="majorminor" placeholder="minor" ng-switch-when="true" value="{{editingArtwork.minor}}" ng-model="editingArtwork.minor"/>
@@ -52,7 +39,7 @@
 
   <div class="row">
     <div class="col-md-6" ng-switch="isEditing">
-      <h4>Image</h4>
+      <h4>{{'ARTWORK.IMAGE' | translate}}</h4>
       <div ng-switch-when="false">
         <cl-image class="thumbnail" public-id="{{artwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
       </div>
@@ -67,10 +54,10 @@
     </div>
 
     <div class="col-md-6" ng-switch="isEditing">
-      <h4>Audio</h4>
+      <h4>{{'ARTWORK.AUDIO' | translate}}</h4>
       <div ng-switch-when="false">
         <le-audio-player ng-show="artwork.audio" artwork="artwork.audio"></le-audio-player>
-        <p ng-hide="artwork.audio"> This artwork doesn't have audio yet. </p> 
+        <p ng-hide="artwork.audio"> {{'ARTWORK.NO_AUDIO' | translate}}</p> 
       </div>
 
       <div ng-switch-when="true" class="form_controls">

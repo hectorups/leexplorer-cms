@@ -21,9 +21,10 @@ angular
     'angular-lodash',
     'ui.bootstrap',
     'angularFileUpload',
-    'ngAudio'
+    'ngAudio',
+    'pascalprecht.translate'
   ])
-  .config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider) {
+  .config(['$routeProvider', '$httpProvider', '$translateProvider', function($routeProvider, $httpProvider, $translateProvider ) {
     $routeProvider
       .when('/login', {
         templateUrl: 'views/login.html',
@@ -48,6 +49,13 @@ angular
       .otherwise({
         redirectTo: '/login'
       });
+
+    // Translations 
+    $translateProvider.useStaticFilesLoader({
+        prefix: 'locales/',
+        suffix: '.json'
+    });
+    $translateProvider.preferredLanguage('en');
 
     // Cloudinary
     $.cloudinary.config().cloud_name = 'leexplorer';
