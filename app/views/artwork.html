@@ -1,4 +1,5 @@
-<form id="artwork_form">  
+<div class="well">
+<form id="artwork_form" class="container">  
       
   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">
     {{alert.msg}}
@@ -70,3 +71,4 @@
   </div>
 
 </form>
+</div>

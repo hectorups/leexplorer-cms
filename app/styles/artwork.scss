@@ -1,9 +1,4 @@
 #artwork_form {
-   padding: 20px;
-
-  .row {
-    margin-bottom: 10px;
-  }
 
   .artwork-name {
     margin-bottom: 10px;
@@ -19,16 +14,8 @@
     width: 50px;
   }
 
-  .col-md-6 {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
-
-  .left-col {
-    padding-right: 10px;
-  }
 
   .audio-player {
-    padding-left: 10px;
+    margin-left: -20px;
   }
 }
