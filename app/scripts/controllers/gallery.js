@@ -15,6 +15,10 @@ angular.module('leexplorerFrontendApp')
     $scope.isEditing = false;
     $scope.alerts = [];
 
+    $scope.types = {
+      general: 'general', painting: 'painting', sculpture: 'sculpture', modern: 'modern', classic: 'classic'
+    };
+
     $scope.edit = function() {
       $scope.editingGallery = angular.copy($scope.gallery);
   		$scope.isEditing = true;

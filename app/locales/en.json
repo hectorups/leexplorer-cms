@@ -23,9 +23,15 @@
     "DESCRIPTION": "Description",
     "PRICE_DESCRIPTION": "Price Description",
     "HOURS": "Hours",
+    "TYPE": "Type",
     "ARTWORKS_TAB": "Artworks",
     "ADDRESS_PH": "Full address",
-    "NAME_PH": "Gallery name"
+    "NAME_PH": "Gallery name",
+    "general": "General", 
+    "painting": "Painting", 
+    "sculpture": "Sculpture", 
+    "modern": "Modern", 
+    "classic": "Classic"
   },
   "ARTWORK": {
     "EDIT": "Edit",
