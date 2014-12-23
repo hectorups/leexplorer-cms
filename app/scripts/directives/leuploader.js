@@ -7,13 +7,14 @@
  * # leUploader
  */
 angular.module('leexplorerFrontendApp')
-  .directive('leUploader', ['$upload', function ($upload) {
+  .directive('leUploader', ['$upload', '$translate', function ($upload, $translate) {
     return {
       templateUrl: 'views/leUploader.html',
       restrict: 'E',
       scope: {
         callback: '&uploadCompleted',
-        tags: '='
+        tags: '=',
+        prompt: '@'
       },
       link: function (scope, element, attrs) {
         
@@ -26,7 +27,7 @@ angular.module('leexplorerFrontendApp')
             file: file
           }).progress(function (e) {
             scope.progress = Math.round((e.loaded * 100.0) / e.total);
-            scope.status = "Uploading... " + scope.progress + "%";
+            scope.status = $translate('UPLOADER.STATUS', {percentage: scope.progress});
           }).success(function (data, status, headers, config) {
             scope.progress = 0;
             scope.callback({data: data});

@@ -49,7 +49,7 @@
           <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
         </div>
         
-        <le-uploader upload-completed="imageUploaded(data)" tags="artwork.gallery_id"></le-uploader>
+        <le-uploader upload-completed="imageUploaded(data)" tags="artwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_IMAGE' | translate}}"></le-uploader>
       </div>
     </div>
 
@@ -63,7 +63,7 @@
       <div ng-switch-when="true" class="form_controls">
         <le-audio-player ng-show="editingArtwork.audio" artwork="editingArtwork.audio"/></le-audio-player>
 
-        <le-uploader upload-completed="audioUploaded(data)" tags="artwork.gallery_id"></le-uploader>
+        <le-uploader upload-completed="audioUploaded(data)" tags="artwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_AUDIO' | translate}}"></le-uploader>
       </div>
     </div>
 
