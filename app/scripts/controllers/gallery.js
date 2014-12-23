@@ -62,4 +62,10 @@ angular.module('leexplorerFrontendApp')
       });
     };
 
+    $scope.geoResult = function(lat, lng, address) {
+      $scope.editingGallery.latitude = lat;
+      $scope.editingGallery.longitude = lng;
+      $scope.editingGallery.address = address;
+    };
+
 }])

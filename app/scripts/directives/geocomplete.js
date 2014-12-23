@@ -10,13 +10,17 @@ angular.module('leexplorerFrontendApp')
   .directive("geocomplete", function() {
     return {
       restrict: 'A',
+      scope: {
+        'callback': '&geoResult'
+      },
       link: function (scope, element, attrs) {
         $(element).geocomplete().bind("geocode:result", function (event, result) {
           if(result.geometry && result.geometry.location) {
               var location = result.geometry.location;
-
-              scope.$apply(function(scope) {
-                scope.updateGeo(location.lat(), location.lng(), result.formatted_address);
+              scope.callback({
+                lat: location.lat(), 
+                lng: location.lng(), 
+                address: result.formatted_address
               });
           }
         });

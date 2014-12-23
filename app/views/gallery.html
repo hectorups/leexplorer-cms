@@ -24,7 +24,7 @@
     	<div class="row" ng-switch="isEditing">
     		<h4>{{ 'GALLERY.ADDRESS' | translate}}</h4>
     		<div ng-switch-when="false">{{gallery.address}}</div>
-    		<input placeholder="{{'GALLERY.ADDRESS_PH' | translate}}" class="form-control" type="text" ng-switch-when="true" value="{{editingGallery.address}}" ng-model="editingGallery.address" geocomplete="{ details: '#gallery_form' }" model="$parent"/>	
+    		<input placeholder="{{'GALLERY.ADDRESS_PH' | translate}}" class="form-control" type="text" ng-switch-when="true" value="{{editingGallery.address}}"  geocomplete geo-result="geoResult(lat, lng, address)"/>	
     	</div>
 
     	<div class="row" ng-switch="isEditing">
