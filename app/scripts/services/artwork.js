@@ -8,6 +8,6 @@
  * Factory in the leexplorerFrontendApp.
  */
 angular.module('leexplorerFrontendApp')
-  .factory('Artwork', function ($resource) {
-    return $resource('http://localhost:1337/artwork/:id', { id: '@id' }, {});
-  });
+  .factory('Artwork', [ '$resource', 'ENV', function ($resource, ENV) {
+    return $resource( ENV.apiEndpoint + '/artwork/:id', { id: '@id' }, {});
+  }]);

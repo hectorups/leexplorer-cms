@@ -8,8 +8,8 @@
  * Factory in the leexplorerFrontendApp.
  */
 angular.module('leexplorerFrontendApp')
-  .factory('Gallery', function ($resource) {
-    return $resource('http://localhost:1337/gallery/:id/:association', { id: '@id' }, {
+  .factory('Gallery', [ '$resource', 'ENV', function ($resource, ENV) {
+    return $resource(ENV.apiEndpoint + '/gallery/:id/:association', { id: '@id' }, {
       artworks: {
         isArray : true,
         params: {
@@ -17,4 +17,4 @@ angular.module('leexplorerFrontendApp')
         }
       }
     });
-  });
+  }]);

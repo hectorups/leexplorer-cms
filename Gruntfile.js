@@ -385,7 +385,40 @@ module.exports = function (grunt) {
         configFile: 'test/karma.conf.js',
         singleRun: true
       }
+    },
+
+    // Constants
+    ngconstant: {
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {%= __ngModule %}',
+        name: 'leexplorerConstants'
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/scripts/constants.js',
+        },
+        constants: {
+          ENV: {
+            name: 'development',
+            apiEndpoint: 'http://localhost:1337'
+          }
+        }
+      },
+      production: {
+        options: {
+          dest: '<%= yeoman.dist %>/scripts/constants.js',
+        },
+        constants: {
+          ENV: {
+            name: 'production',
+            apiEndpoint: 'http://leexplorer.herokuapp.com'
+          }
+        }
+      }
     }
+
   });
 
 
@@ -396,6 +429,7 @@ module.exports = function (grunt) {
 
     grunt.task.run([
       'clean:server',
+      'ngconstant:development',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -419,6 +453,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
+    'ngconstant:production',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
