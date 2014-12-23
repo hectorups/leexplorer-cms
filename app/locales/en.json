@@ -1,0 +1,50 @@
+{
+  "INDEX": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "LOGOUT": "Logout",
+    "FROMLETEAM": "from the Leexplorer team"
+  },
+  "LOGIN": {
+    "USERNAME": "username",
+    "PASSWORD": "password",
+    "SIGNIN": "Sing in"
+  },
+  "MAIN": {
+    "YOUR_GALLERIES": "Your Galleries ({{count}})"
+  },
+  "GALLERY": {
+    "EDIT": "Edit",
+    "SAVE": "Save",
+    "DELETE": "Delete",
+    "CANCEL": "Cancel",
+    "ADDRESS": "Address",
+    "DESCRIPTION": "Description",
+    "PRICE_DESCRIPTION": "Price Description",
+    "HOURS": "Hours",
+    "ARTWORKS_TAB": "Artworks"
+  },
+  "ARTWORK": {
+    "EDIT": "Edit",
+    "SAVE": "Save",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete",
+    "DESCRIPTION": "Description",
+    "BEACON": "Beacon",
+    "IMAGE": "Image",
+    "AUDIO": "Audio",
+    "NO_AUDIO": "This artwork doesn't have audio yet.",
+    "UPLOAD_IMAGE": "Upload Image",
+    "UPLOAD_AUDIO": "Upload Audio"
+  },
+  "CONFIRM_MODAL": {
+    "TITLE": "Danger!",
+    "TEXT": "Confirm you want to delete <b>{{name}}</b>.",
+    "CANCEL": "Cancel",
+    "DELETE": "Delete"
+  },
+  "UPLOADER": {
+    "STATUS": "Uploading... {{percentage}}%"
+  }
+  
+}
