@@ -3,7 +3,8 @@
     "HOME": "Home",
     "ABOUT": "About",
     "LOGOUT": "Logout",
-    "FROMLETEAM": "from the Leexplorer team"
+    "FROMLETEAM": "from the Leexplorer team",
+    "APP_TITLE": "Leexplorer Console"
   },
   "LOGIN": {
     "USERNAME": "username",
@@ -22,7 +23,9 @@
     "DESCRIPTION": "Description",
     "PRICE_DESCRIPTION": "Price Description",
     "HOURS": "Hours",
-    "ARTWORKS_TAB": "Artworks"
+    "ARTWORKS_TAB": "Artworks",
+    "ADDRESS_PH": "Full address",
+    "NAME_PH": "Gallery name"
   },
   "ARTWORK": {
     "EDIT": "Edit",

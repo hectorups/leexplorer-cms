@@ -13,15 +13,18 @@
 
     		<button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"></span> {{'GALLERY.DELETE' | translate}}</button>
 
-    		<button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> {{SAVE | translate}}</button>
+    		<button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"></span> {{'GALLERY.SAVE' | translate}}</button>
 
     		<button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{ 'GALLERY.CANCEL' | translate}} </button>
+
+            <input  ng-show="isEditing" placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingGallery.name}}" ng-model="editingGallery.name"/>
+
     	</div>
 
     	<div class="row" ng-switch="isEditing">
     		<h4>{{ 'GALLERY.ADDRESS' | translate}}</h4>
     		<div ng-switch-when="false">{{gallery.address}}</div>
-    		<input placeholder="full address" class="form-control" type="text" ng-switch-when="true" value="{{editingGallery.address}}" ng-model="editingGallery.address" geocomplete="{ details: '#gallery_form' }" model="$parent">	
+    		<input placeholder="{{'GALLERY.ADDRESS_PH' | translate}}" class="form-control" type="text" ng-switch-when="true" value="{{editingGallery.address}}" ng-model="editingGallery.address" geocomplete="{ details: '#gallery_form' }" model="$parent"/>	
     	</div>
 
     	<div class="row" ng-switch="isEditing">
