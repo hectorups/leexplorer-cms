@@ -49,13 +49,19 @@
           </div>
 
           <div class="row">
-            <div class="col-md-6 left-col" ng-switch="isEditing">
-              <h4 translate='GALLERY.TYPE'></h4>
-              <div ng-switch-when="false" translate="{{'GALLERY.' + gallery.type}}"></div>
-              <select ng-switch-when="true" class="form-control btn btn-primary" ng-model="editingGallery.type" ng-options="('GALLERY.' + value | translate) for (key,value) in types"></select>
+            <div class="col-md-4" ng-switch="isEditing">
+              <h4 translate='GALLERY.PRICE_REFERENCE'></h4>
+              <div ng-switch-when="false">{{'$' + gallery.price_reference}}</div>
+              <select ng-switch-when="true" class="form-control btn btn-primary" ng-model="editingGallery.price_reference" ng-options="(value == 0 ? 'free' : '$' + value) for value in price_references"></select>
             </div>
 
-            <div class="col-md-6 left-col" ng-switch="isEditing">
+            <div class="col-md-4" ng-switch="isEditing">
+              <h4 translate='GALLERY.TYPE'></h4>
+              <div ng-switch-when="false" translate="{{'GALLERY.' + gallery.type}}"></div>
+              <select ng-switch-when="true" class="form-control btn btn-primary" ng-model="editingGallery.type" ng-options="('GALLERY.' + value | translate) for value in types"></select>
+            </div>
+
+            <div class="col-md-4" ng-switch="isEditing">
               <h4 translate='GALLERY.FACILITIES'></h4>
               <div ng-switch-when="false" translate="{{gallery.facilities.join(', ')}}"></div>
               <le-multiselect ng-switch-when="true" values="facilities" translation-prefix="facility_translation_prefix" current-values="editingGallery.facilities"></le-multiselect>

@@ -35,7 +35,8 @@
     "FACILITIES": "Facilities",
     "WIFI": "Wifi", 
     "ACCESSIBILITY": "Accessibility",
-    "CAFE": "Cafe"
+    "CAFE": "Cafe",
+    "PRICE_REFERENCE": "Price Reference"
   },
   "ARTWORK": {
     "EDIT": "Edit",

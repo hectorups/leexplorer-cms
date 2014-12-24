@@ -16,9 +16,10 @@ angular.module('leexplorerFrontendApp')
     $scope.isEditing = false;
     $scope.alerts = [];
 
-    $scope.types = {
-      general: 'general', painting: 'painting', sculpture: 'sculpture', modern: 'modern', classic: 'classic'
-    };
+    $scope.types = [
+      'general', 'painting', 'sculpture', 'modern', 'classic'
+    ];
+    $scope.price_references = _.range(0, 60);
 
     $scope.facilities = ['wifi', 'accessibility', 'cafe'];
     $scope.facility_translation_prefix = 'GALLERY.';
