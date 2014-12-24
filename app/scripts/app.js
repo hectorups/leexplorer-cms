@@ -22,7 +22,8 @@ angular
     'ui.bootstrap',
     'angularFileUpload',
     'ngAudio',
-    'pascalprecht.translate'
+    'pascalprecht.translate',
+    'angularjs-dropdown-multiselect'
   ])
   .config(['$routeProvider', '$httpProvider', '$translateProvider', function($routeProvider, $httpProvider, $translateProvider ) {
     $routeProvider

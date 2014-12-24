@@ -8,7 +8,8 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('GalleryCtrl', ['$scope', '$routeParams', '$location', 'Gallery', '$modal', function ($scope, $routeParams, $location, Gallery, $modal) {
+  .controller('GalleryCtrl', ['$scope', '$routeParams', '$location', 'Gallery', '$modal', '$translate', 
+  function ($scope, $routeParams, $location, Gallery, $modal, $translate) {
     $scope.gallery = Gallery.get({id: $routeParams.id});
     $scope.artworks = Gallery.artworks({id: $routeParams.id});
     $scope.editingGallery = {};
@@ -18,6 +19,37 @@ angular.module('leexplorerFrontendApp')
     $scope.types = {
       general: 'general', painting: 'painting', sculpture: 'sculpture', modern: 'modern', classic: 'classic'
     };
+
+    $scope.facilitiesSettings = {'showCheckAll': false, 'showUncheckAll': false};
+    $scope.selectedFacilities = [];
+    $translate(['GALLERY.WIFI', 'GALLERY.ACCESSIBILITY', 'GALLERY.CAFE']).then(function(translations){
+      $scope.facilities = [ 
+        {id: "wifi", label: translations['GALLERY.WIFI']},
+        {id: "accessibility", label: translations['GALLERY.ACCESSIBILITY']},
+        {id: "cafe", label: translations['GALLERY.CAFE']}
+      ];
+    });
+    $scope.$watch('gallery.facilities', function(newVal, oldVal) {
+      if(newVal) {
+        $scope.selectedFacilities = [];
+        _.each(newVal,function(facility){
+          $scope.selectedFacilities.push({id: facility});
+        });  
+      }
+    });
+
+    $scope.facilitiesEvents = {
+      onItemSelect: function(item) {
+        if(item) {
+          $scope.editingGallery.facilities.push(item.id);
+        }
+    }, onItemDeselect: function(item) {
+        if(item) {
+          var pos = $scope.gallery.facilities.indexOf(item.id);
+          $scope.editingGallery.facilities.splice(pos, 1);
+        }
+    }};
+    
 
     $scope.edit = function() {
       $scope.editingGallery = angular.copy($scope.gallery);

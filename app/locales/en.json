@@ -31,7 +31,11 @@
     "painting": "Painting", 
     "sculpture": "Sculpture", 
     "modern": "Modern", 
-    "classic": "Classic"
+    "classic": "Classic",
+    "FACILITIES": "Facilities",
+    "WIFI": "Wifi", 
+    "ACCESSIBILITY": "Accessibility",
+    "CAFE": "Cafe"
   },
   "ARTWORK": {
     "EDIT": "Edit",
