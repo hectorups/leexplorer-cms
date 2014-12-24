@@ -58,7 +58,7 @@
             <div class="col-md-6 left-col" ng-switch="isEditing">
               <h4 translate='GALLERY.FACILITIES'></h4>
               <div ng-switch-when="false" translate="{{gallery.facilities.join(', ')}}"></div>
-              <div ng-switch-when="true" ng-dropdown-multiselect="" options="facilities" selected-model="selectedFacilities" extra-settings="facilitiesSettings" events="facilitiesEvents"></div>
+              <le-multiselect ng-switch-when="true" values="facilities" translation-prefix="facility_translation_prefix" current-values="editingGallery.facilities"></le-multiselect>
             </div>
 
           </div>
