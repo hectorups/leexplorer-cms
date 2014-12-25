@@ -1,0 +1,10 @@
+<span class="dropdown" dropdown on-toggle="toggled(open)">
+  <a href class="dropdown-toggle" dropdown-toggle>
+    {{languages[current_locale]}}
+  </a>
+  <ul class="dropdown-menu">
+    <li ng-repeat="language in language_list">
+      <a href ng-click="changeLanguage(language)">{{language}}</a>
+    </li>
+  </ul>
+</span>

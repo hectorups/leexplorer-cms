@@ -7,7 +7,7 @@
  * # leMultiselect
  */
 angular.module('leexplorerFrontendApp')
-  .directive('leMultiselect', ['$translate', '$compile', function ($translate, $compile) {
+  .directive('leMultiselect', ['$translate', function ($translate) {
     return {
       restrict: 'E',
       template: '<div ng-dropdown-multiselect="" options="facilities" selected-model="selectedValues" extra-settings="settings" events="events"></div>',
@@ -16,7 +16,7 @@ angular.module('leexplorerFrontendApp')
         'values': '=',
         'translationPrefix': '='
       },
-      controller: function($scope, $translate, $compile) {
+      controller: function($scope, $translate) {
         var convertValues = function(values) {
           return _.map(values, function(item){
             return {id: item};

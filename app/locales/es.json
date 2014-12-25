@@ -1,0 +1,66 @@
+{
+  "INDEX": {
+    "HOME": "Galerías",
+    "ABOUT": "Acerca",
+    "LOGOUT": "Desconectar",
+    "FROMLETEAM": "del equico Leexplorer",
+    "APP_TITLE": "Consola Leexplorer"
+  },
+  "LOGIN": {
+    "USERNAME": "usuario",
+    "PASSWORD": "contraseña",
+    "SIGNIN": "Entrar"
+  },
+  "MAIN": {
+    "YOUR_GALLERIES": "Tus Galerías ({{count}})"
+  },
+  "GALLERY": {
+    "EDIT": "Editar",
+    "SAVE": "Salvar",
+    "DELETE": "Eliminar",
+    "CANCEL": "Cancelar",
+    "ADDRESS": "Dirección",
+    "DESCRIPTION": "Descripción",
+    "PRICE_DESCRIPTION": "Descripción del precio",
+    "HOURS": "Horas",
+    "TYPE": "Tipo",
+    "ARTWORKS_TAB": "Obras",
+    "ADDRESS_PH": "Dirección",
+    "NAME_PH": "Nombre de la galería",
+    "general": "General", 
+    "painting": "Pintura", 
+    "sculpture": "Escultura", 
+    "modern": "Arte Moderno", 
+    "classic": "Arte Clásico",
+    "FACILITIES": "Servicios",
+    "WIFI": "Wifi", 
+    "ACCESSIBILITY": "Accesible",
+    "CAFE": "Cafetería",
+    "PRICE_REFERENCE": "Precio de referencia"
+  },
+  "ARTWORK": {
+    "EDIT": "Editar",
+    "SAVE": "Salvar",
+    "CANCEL": "Cancelar",
+    "DELETE": "Borrar",
+    "DESCRIPTION": "Descripción",
+    "BEACON": "Beacon",
+    "IMAGE": "Imagen",
+    "AUDIO": "Audio",
+    "NO_AUDIO": "Esta obra no tiene audio",
+    "UPLOAD_IMAGE": "Subir imagen",
+    "UPLOAD_AUDIO": "Subir audio",
+    "AUTHOR": "Autor",
+    "LIKES_COUNT": "Popularidad"
+  },
+  "CONFIRM_MODAL": {
+    "TITLE": "Peligro!",
+    "TEXT": "Confirma que quieres borrar <b>{{name}}</b>.",
+    "CANCEL": "Cancelar",
+    "DELETE": "Borrar"
+  },
+  "UPLOADER": {
+    "STATUS": "Subiendo... {{percentage}}%"
+  }
+  
+}
