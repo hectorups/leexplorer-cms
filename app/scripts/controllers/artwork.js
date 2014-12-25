@@ -15,6 +15,8 @@ angular.module('leexplorerFrontendApp')
       $scope.artwork = artwork;
     });
 
+    $scope.likes_count_reference = [0, 50, 100, 150, 200]
+
     $scope.editingArtwork = {};
     $scope.isEditing = false;
     $scope.alerts = [];

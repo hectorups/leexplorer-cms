@@ -49,7 +49,9 @@
     "AUDIO": "Audio",
     "NO_AUDIO": "This artwork doesn't have audio yet.",
     "UPLOAD_IMAGE": "Upload Image",
-    "UPLOAD_AUDIO": "Upload Audio"
+    "UPLOAD_AUDIO": "Upload Audio",
+    "AUTHOR": "Author",
+    "LIKES_COUNT": "Popularity"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Danger!",

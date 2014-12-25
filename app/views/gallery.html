@@ -38,7 +38,7 @@
             <div class="col-md-6 left-col" ng-switch="isEditing">
               <h4 translate='GALLERY.HOURS'></h4>
               <div ng-switch-when="false" ng-bind-html="gallery.hours | nl2br"></div>
-              <textarea placeholder="hours" rows="3" class="form-control" ng-switch-when="true" value="{{editingGallery.hours}}" ng-model="editingGallery.hours"/>
+              <textarea rows="3" class="form-control" ng-switch-when="true" value="{{editingGallery.hours}}" ng-model="editingGallery.hours"/>
             </div>
 
             <div class="col-md-6" ng-switch="isEditing">
