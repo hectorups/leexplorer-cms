@@ -1,14 +1,24 @@
 <div class="container">
 
-  <h3 translate="MAIN.YOUR_GALLERIES" translate-value-count="{{galleries.length}}"> </h3>
+  <h3 class="galleries-title"  translate="MAIN.YOUR_GALLERIES" translate-value-count="{{galleries.length}}"> </h3>
   <div class="container well">
     <div class="row">
+
+      <div class="col-md-4">
+        <div class="galleryGridItem add-item">
+          <a ng-href="#/gallery/">
+            <div class="imgthumb img-responsive">
+              <span class="glyphicon glyphicon-plus"></span>
+            </div>
+          </a>
+        </div>
+      </div>
 
       <div class="col-md-4" ng-repeat="gallery in galleries">
         <div class="galleryGridItem">
           <a ng-href="#/gallery/{{gallery.id}}">
             <div class="imgthumb img-responsive">
-              <cl-image public-id="{{gallery.images[0].public_id}}" crop="fill" height="150" width="200" format="jpg"/>
+              <cl-image public-id="{{gallery.images[0].public_id}}" crop="fill" height="170" width="230" format="jpg"/>
             </div>
             <div class="caption">
               <h5> {{gallery.name}} </h5>

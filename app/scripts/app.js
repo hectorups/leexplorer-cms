@@ -39,11 +39,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/gallery/:id', {
+      .when('/gallery/:id?', {
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl'
       })
-      .when('/artwork/:id', {
+      .when('/artwork/:id?', {
         templateUrl: 'views/artwork.html',
         controller: 'ArtworkCtrl'
       })

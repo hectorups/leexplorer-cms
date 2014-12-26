@@ -12,7 +12,7 @@
     "SIGNIN": "Sing in"
   },
   "MAIN": {
-    "YOUR_GALLERIES": "Your Galleries ({{count}})"
+    "YOUR_GALLERIES": "Your Galleries <span class='badge'>{{count}}</span>"
   },
   "GALLERY": {
     "EDIT": "Edit",

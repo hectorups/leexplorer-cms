@@ -10,11 +10,25 @@
 angular.module('leexplorerFrontendApp')
   .controller('GalleryCtrl', ['$scope', '$routeParams', '$location', 'Gallery', '$modal', 
   function ($scope, $routeParams, $location, Gallery, $modal) {
-    $scope.gallery = Gallery.get({id: $routeParams.id});
-    $scope.artworks = Gallery.artworks({id: $routeParams.id});
+    $scope.galleryId = $routeParams.id;
+    $scope.gallery = {}; 
+    $scope.artworks = []; 
     $scope.editingGallery = {};
-    $scope.isEditing = false;
+    $scope.isEditing = !$scope.galleryId;
     $scope.alerts = [];
+
+    function loadGalleryInfo() {
+      if($scope.galleryId) {
+        $scope.gallery = Gallery.get({id: $scope.galleryId});
+        $scope.artworks = Gallery.artworks({id: $scope.galleryId});  
+      } else {
+        $scope.editingGallery = new Gallery();
+        $scope.editingGallery.price_reference = 0;
+        $scope.editingGallery.type = 'general';
+      }
+      
+    }
+    loadGalleryInfo();
 
     $scope.types = [
       'general', 'painting', 'sculpture', 'modern', 'classic'
@@ -30,7 +44,12 @@ angular.module('leexplorerFrontendApp')
   	};
 
   	$scope.cancelEdit = function() {
-  		$scope.isEditing = false;
+      if($scope.galleryId) {
+        $scope.isEditing = false;  
+      } else {
+        $location.path("/home");
+      }
+  		
   	};
 
     $scope.submit = function() {

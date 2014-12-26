@@ -12,7 +12,7 @@
     "SIGNIN": "Entrar"
   },
   "MAIN": {
-    "YOUR_GALLERIES": "Tus Galerías ({{count}})"
+    "YOUR_GALLERIES": "Tus Galerías <span class='badge'>{{count}}</span>"
   },
   "GALLERY": {
     "EDIT": "Editar",

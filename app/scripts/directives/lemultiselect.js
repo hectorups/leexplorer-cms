@@ -47,6 +47,9 @@ angular.module('leexplorerFrontendApp')
         $scope.events = {
           onItemSelect: function(item) {
             if(item) {
+              if(!$scope.currentValues) {
+                $scope.currentValues = [];
+              }
               $scope.currentValues.push(item.id);
             }
         }, onItemDeselect: function(item) {
