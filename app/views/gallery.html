@@ -18,7 +18,7 @@
 
             <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{ 'GALLERY.CANCEL' | translate}} </button>
 
-                <input  ng-show="isEditing" placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingGallery.name}}" ng-model="editingGallery.name"/>
+            <input  ng-show="isEditing" placeholder="{{ 'ARTWORK.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingGallery.name}}" ng-model="editingGallery.name"/>
 
           </div>
 
@@ -73,13 +73,13 @@
     </div>
   </tab>
 
-  <tab heading="{{'GALLERY.ARTWORKS_TAB' | translate}} ({{artworks.length}})">
+  <tab ng-show="gallery.id" heading="{{'GALLERY.ARTWORKS_TAB' | translate}} ({{artworks.length}})">
     <div class="container well">
         <div class="row" >
 
           <div class="col-md-4">
             <div class="artwork-grid-item add-item">
-              <a ng-href="#/artwork/">
+              <a ng-href="#/gallery/{{gallery.id}}/artwork">
                 <div class="imgthumb img-responsive">
                   <span class="glyphicon glyphicon-plus"></span>
                 </div>
@@ -89,7 +89,7 @@
 
           <div class="col-md-4" ng-repeat="artwork in artworks">
             <div class="artwork-grid-item">
-              <a ng-href="#/artwork/{{artwork.id}}">
+              <a ng-href="#/gallery/{{gallery.id}}/artwork/{{artwork.id}}">
                 <div class="imgthumb img-responsive">
                   <cl-image public-id="{{artwork.image.public_id}}" crop="fill" height="170" width="230" format="jpg"/>
                 </div>

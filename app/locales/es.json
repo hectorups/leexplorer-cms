@@ -51,7 +51,8 @@
     "UPLOAD_IMAGE": "Subir imagen",
     "UPLOAD_AUDIO": "Subir audio",
     "AUTHOR": "Autor",
-    "LIKES_COUNT": "Popularidad"
+    "LIKES_COUNT": "Popularidad",
+    "NAME_PH": "Nombre de la obra"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Peligro!",

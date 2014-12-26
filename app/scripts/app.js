@@ -43,7 +43,7 @@ angular
         templateUrl: 'views/gallery.html',
         controller: 'GalleryCtrl'
       })
-      .when('/artwork/:id?', {
+      .when('/gallery/:gallery_id/artwork/:id?', {
         templateUrl: 'views/artwork.html',
         controller: 'ArtworkCtrl'
       })

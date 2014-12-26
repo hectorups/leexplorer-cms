@@ -8,8 +8,8 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('GalleryCtrl', ['$scope', '$routeParams', '$location', 'Gallery', '$modal', 
-  function ($scope, $routeParams, $location, Gallery, $modal) {
+  .controller('GalleryCtrl', ['$scope', '$window', '$routeParams', '$location', 'Gallery', '$modal', 
+  function ($scope, $window, $routeParams, $location, Gallery, $modal) {
     $scope.galleryId = $routeParams.id;
     $scope.gallery = {}; 
     $scope.artworks = []; 
@@ -47,9 +47,8 @@ angular.module('leexplorerFrontendApp')
       if($scope.galleryId) {
         $scope.isEditing = false;  
       } else {
-        $location.path("/home");
+        $window.history.back();
       }
-  		
   	};
 
     $scope.submit = function() {

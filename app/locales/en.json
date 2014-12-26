@@ -51,7 +51,8 @@
     "UPLOAD_IMAGE": "Upload Image",
     "UPLOAD_AUDIO": "Upload Audio",
     "AUTHOR": "Author",
-    "LIKES_COUNT": "Popularity"
+    "LIKES_COUNT": "Popularity",
+    "NAME_PH": "Name of the artwork"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Danger!",

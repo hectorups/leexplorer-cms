@@ -15,6 +15,8 @@
       <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/> {{'ARTWORK.SAVE' | translate}}</button>
 
       <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}} </button>
+
+      <input  ng-show="isEditing" placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingArtwork.name}}" ng-model="editingArtwork.name"/>
     </div>
 
     <div class="row" ng-switch="isEditing">
@@ -46,7 +48,7 @@
         </div>
 
         <div ng-switch-when="true" class="form_controls">
-          <div>
+          <div ng-show="editingArtwork.image">
             <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
           </div>
           
@@ -64,7 +66,7 @@
         <div ng-switch-when="true" class="form_controls">
           <le-audio-player ng-show="editingArtwork.audio" artwork="editingArtwork.audio"/></le-audio-player>
 
-          <le-uploader upload-completed="audioUploaded(data)" tags="artwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_AUDIO' | translate}}"></le-uploader>
+          <le-uploader upload-completed="audioUploaded(data)" tags="editingArtwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_AUDIO' | translate}}"></le-uploader>
         </div>
       </div>
 

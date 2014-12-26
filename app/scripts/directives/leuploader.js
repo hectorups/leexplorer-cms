@@ -27,7 +27,9 @@ angular.module('leexplorerFrontendApp')
             file: file
           }).progress(function (e) {
             scope.progress = Math.round((e.loaded * 100.0) / e.total);
-            scope.status = $translate('UPLOADER.STATUS', {percentage: scope.progress});
+            $translate('UPLOADER.STATUS', {percentage: scope.progress}).then( function(translation) {
+              scope.status = translation;
+            });
           }).success(function (data, status, headers, config) {
             scope.progress = 0;
             scope.callback({data: data});
