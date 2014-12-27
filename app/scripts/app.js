@@ -77,7 +77,8 @@ angular
     }]);
 
   }])
-  .run(function ($rootScope, $location, SessionService, AuthService) {
+  .run(["$rootScope", "$location", "SessionService", "AuthService", 
+  function ($rootScope, $location, SessionService, AuthService) {
     $rootScope.$on("$locationChangeStart", function (event, next) {
       if (!SessionService.isLogged()) {
         $location.url('/login');
@@ -92,4 +93,4 @@ angular
     $rootScope.$location = $location;
     $rootScope.AuthService = AuthService;
     $rootScope.SessionService = SessionService;
-  });
+  }]);

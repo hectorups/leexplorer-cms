@@ -9,9 +9,9 @@
  * Filter in the leexplorerFrontendApp.
  */
 angular.module('leexplorerFrontendApp')
-	.filter("nl2br", function($filter) {
+	.filter("nl2br",['$filter', function($filter) {
 		return function(data) {
 		if (!data) return data;
 	   		return data.replace(/\n\r?/g, '<br />');
 		};
-	});
+	}]);

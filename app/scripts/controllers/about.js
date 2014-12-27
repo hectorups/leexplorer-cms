@@ -8,6 +8,6 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AboutCtrl', ['$scope', function ($scope) {
 
-  });
+  }]);
