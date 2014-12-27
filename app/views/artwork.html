@@ -22,7 +22,7 @@
     <div class="row" ng-switch="isEditing">
       <h4 translate='ARTWORK.DESCRIPTION'></h4>
       <div ng-switch-when="false" ng-bind-html="artwork.description | nl2br"></div>
-      <textarea  rows="15" class="form-control" ng-switch-when="true" value="{{editingArtwork.description}}" ng-model="editingArtwork.description"/>
+      <textarea  rows="15" class="form-control" ng-switch-when="true" value="{{editingArtwork.description}}" ng-model="editingArtwork.description"></textarea>
     </div>
 
     <div class="row">
