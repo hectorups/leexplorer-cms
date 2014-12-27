@@ -26,7 +26,6 @@ angular.module('leexplorerFrontendApp')
       
     }
     loadArtwork();
-    
 
     $scope.likes_count_reference = [0, 50, 100, 150, 200]
     $scope.isEditing = !$scope.artworkId;
