@@ -9,7 +9,7 @@
 angular.module('leexplorerFrontendApp')
   .directive('leLanguageSelector', ['$translate', 'SessionService', function ($translate, SessionService) {
     return {
-      templateUrl: 'views/leLanguageSelector.html',
+      templateUrl: 'views/lelanguageselector.html',
       restrict: 'E',
       controller: function($scope, $translate) {
         $scope.current_locale = SessionService.locale;

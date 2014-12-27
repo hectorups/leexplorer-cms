@@ -37,7 +37,7 @@ angular.module('leexplorerFrontendApp')
     };
 
     $scope.cancelEdit = function() {
-      if($scope.galleryId) {
+      if($scope.artworkId) {
         $scope.isEditing = false;  
       } else {
         $window.history.back();
