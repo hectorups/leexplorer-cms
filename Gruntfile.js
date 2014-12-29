@@ -40,6 +40,10 @@ module.exports = function (grunt) {
           livereload: '<%= connect.options.livereload %>'
         }
       },
+      browserify: {
+        files: ['<%= yeoman.app %>/browserify_source.js'],
+        tasks: ['browserify']
+      },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
         tasks: ['newer:jshint:test', 'karma']
@@ -143,6 +147,14 @@ module.exports = function (grunt) {
         }]
       },
       server: '.tmp'
+    },
+
+    // Browserify
+    browserify: {
+      services: {
+        src: ['<%= yeoman.app %>/browserify_source.js'],
+        dest: '<%= yeoman.app %>/scripts/browserify.js'
+      }
     },
 
     // Add vendor prefixed styles
@@ -432,6 +444,7 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'ngconstant:development',
+      'browserify',
       'wiredep',
       'concurrent:server',
       'autoprefixer',
@@ -456,6 +469,7 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean:dist',
     'ngconstant:production',
+    'browserify',
     'wiredep',
     'useminPrepare',
     'concurrent:dist',
