@@ -53,6 +53,7 @@ angular.module('leexplorerFrontendApp')
 
     $scope.submit = function() {
       delete $scope.editingGallery.artworks;
+      delete $scope.editingGallery.images;
       $scope.editingGallery.$save(function() {
         $scope.gallery = $scope.editingGallery;
         $scope.isEditing = false;
