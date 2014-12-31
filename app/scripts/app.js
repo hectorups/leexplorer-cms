@@ -23,7 +23,8 @@ angular
     'angularFileUpload',
     'ngAudio',
     'pascalprecht.translate',
-    'angularjs-dropdown-multiselect'
+    'angularjs-dropdown-multiselect',
+    'angular-loading-bar'
   ])
   .config(['$routeProvider', '$httpProvider', '$translateProvider', function($routeProvider, $httpProvider, $translateProvider ) {
     $routeProvider
