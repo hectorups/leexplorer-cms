@@ -24,7 +24,8 @@ angular
     'ngAudio',
     'pascalprecht.translate',
     'angularjs-dropdown-multiselect',
-    'angular-loading-bar'
+    'angular-loading-bar',
+    'frapontillo.bootstrap-switch'
   ])
   .config(['$routeProvider', '$httpProvider', '$translateProvider', function($routeProvider, $httpProvider, $translateProvider ) {
     $routeProvider

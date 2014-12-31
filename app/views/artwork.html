@@ -17,6 +17,32 @@
       <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}} </button>
 
       <input  ng-show="isEditing" placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingArtwork.name}}" ng-model="editingArtwork.name"/>
+
+    </div>
+
+    <div class="row" ng-switch="isEditing">
+      <h4 translate='ARTWORK.PUBLISHED'></h4>
+      <bs-switch
+        ng-switch-when="false"
+        ng-model="artwork.enabled"
+        type="checkbox"
+        switch-active="{{ !artwork }}"
+        switch-readonly="true"
+        switch-size="small"
+        switch-on-text="{{ 'ARTWORK.ENABLED' | translate }}"
+        switch-off-text="{{ 'ARTWORK.DISABLED' | translate }}"
+        ng-true-value="true"
+        ng-false-value="false"> </bs-switch>
+
+      <bs-switch
+        ng-switch-when="true"
+        ng-model="editingArtwork.enabled"
+        type="checkbox"
+        switch-size="small"
+        switch-on-text="{{ 'ARTWORK.ENABLED' | translate }}"
+        switch-off-text="{{ 'ARTWORK.DISABLED' | translate }}"
+        ng-true-value="true"
+        ng-false-value="false"> </bs-switch>
     </div>
 
     <div class="row" ng-switch="isEditing">

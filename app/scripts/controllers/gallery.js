@@ -11,15 +11,17 @@ angular.module('leexplorerFrontendApp')
   .controller('GalleryCtrl', ['$scope', '$window', '$routeParams', '$location', 'Gallery', '$modal', 
   function ($scope, $window, $routeParams, $location, Gallery, $modal) {
     $scope.galleryId = $routeParams.id;
-    $scope.gallery = {}; 
+    $scope.gallery = null; 
     $scope.artworks = []; 
-    $scope.editingGallery = {};
+    $scope.editingGallery = null;
     $scope.isEditing = !$scope.galleryId;
     $scope.alerts = [];
 
     function loadGalleryInfo() {
       if($scope.galleryId) {
-        $scope.gallery = Gallery.get({id: $scope.galleryId});
+        Gallery.get({id: $routeParams.id}, function(gallery) {
+          $scope.gallery = gallery;
+        });
         $scope.artworks = Gallery.artworks({id: $scope.galleryId});  
       } else {
         $scope.editingGallery = new Gallery();

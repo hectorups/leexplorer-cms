@@ -36,7 +36,10 @@
     "WIFI": "Wifi", 
     "ACCESSIBILITY": "Accessibility",
     "CAFE": "Cafe",
-    "PRICE_REFERENCE": "Price Reference"
+    "PRICE_REFERENCE": "Price Reference",
+    "PUBLISHED": "Published Online",
+    "ENABLED": "YES",
+    "DISABLED": "NO"
   },
   "ARTWORK": {
     "EDIT": "Edit",
@@ -52,7 +55,10 @@
     "UPLOAD_AUDIO": "Upload Audio",
     "AUTHOR": "Author",
     "LIKES_COUNT": "Popularity",
-    "NAME_PH": "Name of the artwork"
+    "NAME_PH": "Name of the artwork",
+    "PUBLISHED": "Published Online",
+    "ENABLED": "YES",
+    "DISABLED": "NO"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Danger!",

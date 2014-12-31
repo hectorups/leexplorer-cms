@@ -36,7 +36,10 @@
     "WIFI": "Wifi", 
     "ACCESSIBILITY": "Accesible",
     "CAFE": "Cafetería",
-    "PRICE_REFERENCE": "Precio de referencia"
+    "PRICE_REFERENCE": "Precio de referencia",
+    "PUBLISHED": "Publicado Online",
+    "ENABLED": "Sí",
+    "DISABLED": "No"
   },
   "ARTWORK": {
     "EDIT": "Editar",
@@ -52,7 +55,10 @@
     "UPLOAD_AUDIO": "Subir audio",
     "AUTHOR": "Autor",
     "LIKES_COUNT": "Popularidad",
-    "NAME_PH": "Nombre de la obra"
+    "NAME_PH": "Nombre de la obra",
+    "PUBLISHED": "Publicado Online",
+    "ENABLED": "Sí",
+    "DISABLED": "No"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Peligro!",
