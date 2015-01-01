@@ -25,7 +25,8 @@ angular
     'pascalprecht.translate',
     'angularjs-dropdown-multiselect',
     'angular-loading-bar',
-    'frapontillo.bootstrap-switch'
+    'frapontillo.bootstrap-switch',
+    'ui.bootstrap-slider'
   ])
   .config(['$routeProvider', '$httpProvider', '$translateProvider', function($routeProvider, $httpProvider, $translateProvider ) {
     $routeProvider

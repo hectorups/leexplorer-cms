@@ -105,7 +105,9 @@
       <div class="col-md-6 left-col" ng-switch="isEditing">
         <h4 translate='ARTWORK.LIKES_COUNT'></h4>
         <p ng-switch-when="false">{{artwork.likes_count}}</p>
-        <select ng-switch-when="true" class="form-control btn btn-primary" ng-model="editingArtwork.likes_count" ng-options="value for value in likes_count_reference"></select>
+        <div ng-switch-when="true">
+          <slider ng-model="editingArtwork.likes_count" min="0" step="1" max="200" value="editingArtwork.likes_count"></slider>
+        </div>
       </div>
     </div>
 
