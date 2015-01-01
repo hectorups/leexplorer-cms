@@ -39,7 +39,8 @@
     "PRICE_REFERENCE": "Price Reference",
     "PUBLISHED": "Published Online",
     "ENABLED": "YES",
-    "DISABLED": "NO"
+    "DISABLED": "NO",
+    "ADD_NEW": "Create Gallery"
   },
   "ARTWORK": {
     "EDIT": "Edit",
@@ -58,7 +59,8 @@
     "NAME_PH": "Name of the artwork",
     "PUBLISHED": "Published Online",
     "ENABLED": "YES",
-    "DISABLED": "NO"
+    "DISABLED": "NO",
+    "ADD_NEW": "New Artwork"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Danger!",

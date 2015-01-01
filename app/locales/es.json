@@ -39,7 +39,8 @@
     "PRICE_REFERENCE": "Precio de referencia",
     "PUBLISHED": "Publicado Online",
     "ENABLED": "Sí",
-    "DISABLED": "No"
+    "DISABLED": "No",
+    "ADD_NEW": "Crear Galería"
   },
   "ARTWORK": {
     "EDIT": "Editar",
@@ -58,7 +59,8 @@
     "NAME_PH": "Nombre de la obra",
     "PUBLISHED": "Publicado Online",
     "ENABLED": "Sí",
-    "DISABLED": "No"
+    "DISABLED": "No",
+    "ADD_NEW": "Nueva Obra"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Peligro!",

@@ -104,7 +104,9 @@
 
           <div class="col-md-4">
             <div class="artwork-grid-item add-item">
+
               <a ng-href="#/gallery/{{gallery.id}}/artwork">
+                <div class="caption-add-new" translate="ARTWORK.ADD_NEW"></div>
                 <div class="imgthumb img-responsive">
                   <span class="glyphicon glyphicon-plus"></span>
                 </div>
@@ -119,7 +121,10 @@
                   <cl-image public-id="{{artwork.image.public_id}}" crop="fill" height="170" width="230" format="jpg"/>
                 </div>
                 <div class="caption">
-                  <h5> {{artwork.name}} </h5>
+                  <div class="caption-title"> {{artwork.name}} </div>
+                  <span ng-hide="{{artwork.enabled}}" class="glyphicon glyphicon-eye-close"></span>
+                  <span ng-show="{{artwork.audio}}" class="glyphicon glyphicon-headphones"></span>
+                  <span ng-show="{{artwork.majorminor > 0}}" class="glyphicon glyphicon-signal"></span>
                 </div>
               </a>
             </div>
