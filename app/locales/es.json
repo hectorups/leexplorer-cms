@@ -60,7 +60,9 @@
     "PUBLISHED": "Publicado Online",
     "ENABLED": "Sí",
     "DISABLED": "No",
-    "ADD_NEW": "Nueva Obra"
+    "ADD_NEW": "Nueva Obra",
+    "PUBLISHED_TEXT": "Fecha de Creación",
+    "PUBLISHED_PH": "ejemplo: 50-40 bc"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Peligro!",

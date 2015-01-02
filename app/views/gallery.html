@@ -22,30 +22,30 @@
 
           </div>
 
-              <div class="row" ng-switch="isEditing">
-                <h4 translate='GALLERY.PUBLISHED'></h4>
-                <bs-switch
-                  ng-switch-when="false"
-                  ng-model="gallery.enabled"
-                  type="checkbox"
-                  switch-active="{{ !gallery }}"
-                  switch-readonly="true"
-                  switch-size="small"
-                  switch-on-text="{{ 'GALLERY.ENABLED' | translate }}"
-                  switch-off-text="{{ 'GALLERY.DISABLED' | translate }}"
-                  ng-true-value="true"
-                  ng-false-value="false"> </bs-switch>
+          <div class="row" ng-switch="isEditing">
+            <h4 translate='GALLERY.PUBLISHED'></h4>
+            <bs-switch
+              ng-switch-when="false"
+              ng-model="gallery.enabled"
+              type="checkbox"
+              switch-active="{{ !gallery }}"
+              switch-readonly="true"
+              switch-size="small"
+              switch-on-text="{{ 'GALLERY.ENABLED' | translate }}"
+              switch-off-text="{{ 'GALLERY.DISABLED' | translate }}"
+              ng-true-value="true"
+              ng-false-value="false"> </bs-switch>
 
-                <bs-switch
-                  ng-switch-when="true"
-                  ng-model="editingGallery.enabled"
-                  type="checkbox"
-                  switch-size="small"
-                  switch-on-text="{{ 'GALLERY.ENABLED' | translate }}"
-                  switch-off-text="{{ 'GALLERY.DISABLED' | translate }}"
-                  ng-true-value="true"
-                  ng-false-value="false"> </bs-switch>
-              </div>
+            <bs-switch
+              ng-switch-when="true"
+              ng-model="editingGallery.enabled"
+              type="checkbox"
+              switch-size="small"
+              switch-on-text="{{ 'GALLERY.ENABLED' | translate }}"
+              switch-off-text="{{ 'GALLERY.DISABLED' | translate }}"
+              ng-true-value="true"
+              ng-false-value="false"> </bs-switch>
+          </div>
 
           <div class="row" ng-switch="isEditing">
             <h4 translate='GALLERY.ADDRESS'></h4>
@@ -114,7 +114,7 @@
             </div>
           </div>
 
-          <div class="col-md-4" ng-repeat="artwork in artworks">
+          <div class="col-md-4 animated-fadeinout-item" ng-repeat="artwork in artworks">
             <div class="artwork-grid-item">
               <a ng-href="#/gallery/{{gallery.id}}/artwork/{{artwork.id}}">
                 <div class="imgthumb img-responsive">

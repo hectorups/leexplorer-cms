@@ -60,7 +60,9 @@
     "PUBLISHED": "Published Online",
     "ENABLED": "YES",
     "DISABLED": "NO",
-    "ADD_NEW": "New Artwork"
+    "ADD_NEW": "New Artwork",
+    "PUBLISHED_TEXT": "Creation Time",
+    "PUBLISHED_PH": "eg: 50-40 bc"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Danger!",

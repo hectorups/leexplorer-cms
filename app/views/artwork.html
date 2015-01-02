@@ -8,13 +8,13 @@
     <div class="row artwork-name">
       <span class="wrap-title name">{{artwork.name}}</span>
 
-      <button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"/>{{'ARTWORK.EDIT' | translate}}</button>
+      <button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"/> {{'ARTWORK.EDIT' | translate}}</button>
 
-      <button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"/>{{'ARTWORK.DELETE' | translate}}</button>
+      <button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"/> {{'ARTWORK.DELETE' | translate}}</button>
 
-      <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/>{{'ARTWORK.SAVE' | translate}}</button>
+      <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/> {{'ARTWORK.SAVE' | translate}}</button>
 
-      <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}} </button>
+      <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}}</button>
 
       <input  ng-show="isEditing" placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingArtwork.name}}" ng-model="editingArtwork.name"/>
 
@@ -108,6 +108,17 @@
         <div ng-switch-when="true">
           <slider ng-model="editingArtwork.likes_count" min="0" step="1" max="200" value="editingArtwork.likes_count"></slider>
         </div>
+      </div>
+
+      <div class="col-md-6 left-col" ng-switch="isEditing">
+        <h4 translate='ARTWORK.PUBLISHED_TEXT'></h4>
+        <p ng-switch-when="false">{{artwork.published_text}}</p>
+        <p class="input-group" ng-switch-when="true">
+          <input type="text" placeholder="{{ 'ARTWORK.PUBLISHED_PH' | translate}}" class="form-control" ng-model="editingArtwork.published_text"></input>
+          <span class="input-group-btn">
+            <span type="button" class="btn btn-default disabled" ><i class="glyphicon glyphicon-calendar"></i></span>
+          </span>
+        </p>
       </div>
     </div>
 
