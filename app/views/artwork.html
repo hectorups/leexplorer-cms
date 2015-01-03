@@ -8,72 +8,89 @@
     <div class="row artwork-name">
       <span class="wrap-title name">{{artwork.name}}</span>
 
-      <button class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"/> {{'ARTWORK.EDIT' | translate}}</button>
+      <span ng-switch="isEditing">
+        <button ng-switch-when="false" class="btn btn-default btn-xs h2-button" ng-hide="isEditing" ng-click="edit()"><span class="glyphicon glyphicon-edit"/> {{'ARTWORK.EDIT' | translate}}</button>
 
-      <button class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"/> {{'ARTWORK.DELETE' | translate}}</button>
+        <button ng-switch-when="true" class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}}</button>
+      </span>
 
-      <button class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/> {{'ARTWORK.SAVE' | translate}}</button>
+      <span ng-switch="isEditing">
+        <button ng-switch-when="false" class="btn btn-danger btn-xs h2-button" ng-hide="isEditing" ng-click="confirmDelete()"><span class="glyphicon glyphicon-remove"/> {{'ARTWORK.DELETE' | translate}}</button>
 
-      <button class="btn btn-default btn-xs h2-button" ng-show="isEditing" ng-click="cancelEdit()"><span class="glyphicon glyphicon-remove-circle"></span> {{'ARTWORK.CANCEL' | translate}}</button>
+        <button ng-switch-when="true" class="btn btn-primary btn-xs h2-button" ng-show="isEditing" ng-click="submit()"><span class="glyphicon glyphicon-ok"/> {{'ARTWORK.SAVE' | translate}}</button>
+      </span>
 
-      <input  ng-show="isEditing" placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingArtwork.name}}" ng-model="editingArtwork.name"/>
+      <div ng-switch="isEditing">
+        <div class="animated-fadeinout-item-quick" ng-switch-when="true">
+          <input  placeholder="{{ 'GALLERY.NAME_PH' | translate}}" class="form-control" type="text" value="{{editingArtwork.name}}" ng-model="editingArtwork.name"/>
+        </div>
+      </div>
 
     </div>
 
     <div class="row" ng-switch="isEditing">
       <h4 translate='ARTWORK.PUBLISHED'></h4>
-      <bs-switch
-        ng-switch-when="false"
-        ng-model="artwork.enabled"
-        type="checkbox"
-        switch-active="{{ !artwork }}"
-        switch-readonly="true"
-        switch-size="small"
-        switch-on-text="{{ 'ARTWORK.ENABLED' | translate }}"
-        switch-off-text="{{ 'ARTWORK.DISABLED' | translate }}"
-        ng-true-value="true"
-        ng-false-value="false"> </bs-switch>
+      <div class="animated-vanishfadein-item" ng-switch-when="false">
+        <bs-switch
+          ng-model="artwork.enabled"
+          type="checkbox"
+          switch-active="{{ !artwork }}"
+          switch-readonly="true"
+          switch-size="small"
+          switch-on-text="{{ 'ARTWORK.ENABLED' | translate }}"
+          switch-off-text="{{ 'ARTWORK.DISABLED' | translate }}"
+          ng-true-value="true"
+          ng-false-value="false"> </bs-switch>
+      </div>
 
-      <bs-switch
-        ng-switch-when="true"
-        ng-model="editingArtwork.enabled"
-        type="checkbox"
-        switch-size="small"
-        switch-on-text="{{ 'ARTWORK.ENABLED' | translate }}"
-        switch-off-text="{{ 'ARTWORK.DISABLED' | translate }}"
-        ng-true-value="true"
-        ng-false-value="false"> </bs-switch>
+      <div class="animated-vanishfadein-item" ng-switch-when="true">
+        <bs-switch
+          ng-model="editingArtwork.enabled"
+          type="checkbox"
+          switch-size="small"
+          switch-on-text="{{ 'ARTWORK.ENABLED' | translate }}"
+          switch-off-text="{{ 'ARTWORK.DISABLED' | translate }}"
+          ng-true-value="true"
+          ng-false-value="false"> </bs-switch>
+      </div>
     </div>
 
     <div class="row" ng-switch="isEditing">
       <h4 translate='ARTWORK.DESCRIPTION'></h4>
-      <div ng-switch-when="false" ng-bind-html="artwork.description | nl2br"></div>
-      <textarea  rows="15" class="form-control" ng-switch-when="true" value="{{editingArtwork.description}}" ng-model="editingArtwork.description"></textarea>
+      <div ng-switch-when="false" class="animated-vanishfadein-item" ng-bind-html="artwork.description | nl2br"></div>
+
+      <div class="animated-vanishfadein-item" ng-switch-when="true">
+        <textarea  rows="15" class="form-control" value="{{editingArtwork.description}}" ng-model="editingArtwork.description"></textarea>
+      </div>
     </div>
 
     <div class="row">
       <div class="col-md-6 left-col" ng-switch="isEditing">
         <h4 translate='ARTWORK.AUTHOR'></h4>
-        <p ng-switch-when="false">{{artwork.author}}</p>
-        <input type="text" class="form-control" placeholder="author name" ng-switch-when="true" value="{{editingArtwork.author}}" ng-model="editingArtwork.author"/>
+        <p ng-switch-when="false" class="animated-vanishfadein-item">{{artwork.author}}</p>
+        <div class="animated-vanishfadein-item" ng-switch-when="true">
+          <input type="text" class="form-control" placeholder="author name" value="{{editingArtwork.author}}" ng-model="editingArtwork.author"/>
+        </div>
       </div>
 
       <div class="col-md-6 left-col" ng-switch="isEditing">
         <h4 translate='ARTWORK.BEACON'></h4>
-        <p ng-switch-when="false">{{artwork.majorminor}}</p>
-        <input type="text" class="form-control" ng-switch-when="true" value="{{editingArtwork.majorminor}}" ng-model="editingArtwork.majorminor"/>
+        <p ng-switch-when="false" class="animated-vanishfadein-item">{{artwork.majorminor}}</p>
+        <div class="animated-vanishfadein-item" ng-switch-when="true">
+          <input type="text" class="form-control" value="{{editingArtwork.majorminor}}" ng-model="editingArtwork.majorminor"/>
+        </div>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6" ng-switch="isEditing">
         <h4 translate='ARTWORK.IMAGE'></h4>
-        <div ng-switch-when="false">
+        <div ng-switch-when="false" class="animated-vanishfadein-item">
           <cl-image class="thumbnail" public-id="{{artwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
         </div>
 
-        <div ng-switch-when="true" class="form_controls">
-          <div ng-show="editingArtwork.image">
+        <div ng-switch-when="true" class="form_controls animated-vanishfadein-item">
+          <div ng-show="editingArtwork.image" >
             <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
           </div>
           
@@ -83,12 +100,12 @@
 
       <div class="col-md-6" ng-switch="isEditing">
         <h4 translate='ARTWORK.AUDIO'></h4>
-        <div ng-switch-when="false">
+        <div ng-switch-when="false" class="animated-vanishfadein-item">
           <le-audio-player ng-show="artwork.audio" artwork="artwork.audio"></le-audio-player>
           <p ng-hide="artwork.audio" translate='ARTWORK.NO_AUDIO'></p> 
         </div>
 
-        <div ng-switch-when="true" class="form_controls">
+        <div ng-switch-when="true" class="form_controls animated-vanishfadein-item">
           <div>
             <le-audio-player ng-show="editingArtwork.audio" artwork="editingArtwork.audio"/></le-audio-player>
           </div>
@@ -104,16 +121,16 @@
     <div class="row">
       <div class="col-md-6 left-col" ng-switch="isEditing">
         <h4 translate='ARTWORK.LIKES_COUNT'></h4>
-        <p ng-switch-when="false">{{artwork.likes_count}}</p>
-        <div ng-switch-when="true">
+        <p ng-switch-when="false" class="animated-vanishfadein-item">{{artwork.likes_count}}</p>
+        <div ng-switch-when="true" class="form_controls animated-vanishfadein-item">
           <slider ng-model="editingArtwork.likes_count" min="0" step="1" max="200" value="editingArtwork.likes_count"></slider>
         </div>
       </div>
 
       <div class="col-md-6 left-col" ng-switch="isEditing">
         <h4 translate='ARTWORK.PUBLISHED_TEXT'></h4>
-        <p ng-switch-when="false">{{artwork.published_text}}</p>
-        <p class="input-group" ng-switch-when="true">
+        <p ng-switch-when="false" class="animated-vanishfadein-item">{{artwork.published_text}}</p>
+        <p class="input-group form_controls animated-vanishfadein-item" ng-switch-when="true">
           <input type="text" placeholder="{{ 'ARTWORK.PUBLISHED_PH' | translate}}" class="form-control" ng-model="editingArtwork.published_text"></input>
           <span class="input-group-btn">
             <span type="button" class="btn btn-default disabled" ><i class="glyphicon glyphicon-calendar"></i></span>

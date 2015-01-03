@@ -1,13 +1,17 @@
 @import "constants.scss";
 
+@mixin transition($value) {
+  -webkit-transition:$value linear all;
+  transition:$value linear all;
+}
+
 /* 
  *  Animations
  */
 
 .animated-vanishfadein-item {
   &.ng-enter {
-    -webkit-transition:$le-quick-animation linear all;
-    transition:$le-quick-animation linear all;
+    @include transition($le-quick-animation);
   }
 
   &.ng-enter,
@@ -23,8 +27,7 @@
 .animated-fadeinout-item-quick {
   &.ng-enter,
   &.ng-leave {
-    -webkit-transition:$le-quick-animation linear all;
-    transition:$le-quick-animation linear all;
+    @include transition($le-quick-animation);
   }
 
   &.ng-enter,
@@ -40,8 +43,7 @@
 .animated-fadeinout-item {
   &.ng-enter,
   &.ng-leave {
-    -webkit-transition:$le-slow-animation linear all;
-    transition:$le-slow-animation linear all;
+    @include transition($le-slow-animation);
   }
 
   &.ng-enter,
@@ -59,8 +61,9 @@
 .tab-animation {
   .tab-content {
     position: relative;
+
     .tab-pane{
-      transition: $le-tab-animation linear opacity;
+      @include transition($le-tab-animation);
     }
 
     .tab-pane.active-remove {
