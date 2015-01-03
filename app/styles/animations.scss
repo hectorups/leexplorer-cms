@@ -1,0 +1,55 @@
+@import "constants.scss";
+
+/* 
+ *  Animations
+ */
+
+.animated-vanishfadein-item {
+  &.ng-enter {
+    -webkit-transition:$le-quick-animation linear all;
+    transition:$le-quick-animation linear all;
+  }
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active {
+    opacity:0;
+  }
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity:1;
+  }
+}
+
+.animated-fadeinout-item-quick {
+  &.ng-enter,
+  &.ng-leave {
+    -webkit-transition:$le-quick-animation linear all;
+    transition:$le-quick-animation linear all;
+  }
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active {
+    opacity:0;
+  }
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity:1;
+  }
+}
+
+.animated-fadeinout-item {
+  &.ng-enter,
+  &.ng-leave {
+    -webkit-transition:$le-slow-animation linear all;
+    transition:$le-slow-animation linear all;
+  }
+
+  &.ng-enter,
+  &.ng-leave.ng-leave-active {
+    opacity:0;
+  }
+  &.ng-leave,
+  &.ng-enter.ng-enter-active {
+    opacity:1;
+  }
+}
