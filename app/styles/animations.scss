@@ -53,3 +53,29 @@
     opacity:1;
   }
 }
+
+
+/* set reference point */
+.tab-animation {
+  .tab-content {
+    position: relative;
+    .tab-pane{
+      transition: $le-tab-animation linear opacity;
+    }
+
+    .tab-pane.active-remove {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      display: block;
+    }
+
+    .tab-pane.active-remove-active {
+        opacity: 0;
+    }
+
+    .tab-pane.active-add {
+        opacity: 0;
+    }
+  }
+}  
