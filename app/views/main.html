@@ -22,7 +22,8 @@
               <cl-image public-id="{{gallery.images[0].public_id}}" crop="fill" height="170" width="230" format="jpg"/>
             </div>
             <div class="caption">
-              <h5> {{gallery.name}} </h5>
+              <div class="caption-title"> {{gallery.name}} </div>
+              <span ng-hide="{{gallery.enabled}}" class="glyphicon glyphicon-eye-close"></span>
             </div>
           </a>
         </div>
