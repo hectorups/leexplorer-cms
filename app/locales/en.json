@@ -61,7 +61,7 @@
     "ENABLED": "YES",
     "DISABLED": "NO",
     "ADD_NEW": "New Artwork",
-    "PUBLISHED_TEXT": "Creation Time",
+    "PUBLISHED_TEXT": "Creation Period",
     "PUBLISHED_PH": "eg: 50-40 bc"
   },
   "CONFIRM_MODAL": {

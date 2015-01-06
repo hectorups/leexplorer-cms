@@ -129,9 +129,9 @@
 
       <div class="col-md-6 left-col" ng-switch="isEditing">
         <h4 translate='ARTWORK.PUBLISHED_TEXT'></h4>
-        <p ng-switch-when="false" class="animated-vanishfadein-item">{{artwork.published_text}}</p>
+        <p ng-switch-when="false" class="animated-vanishfadein-item">{{artwork.published_description}}</p>
         <p class="input-group form_controls animated-vanishfadein-item" ng-switch-when="true">
-          <input type="text" placeholder="{{ 'ARTWORK.PUBLISHED_PH' | translate}}" class="form-control" ng-model="editingArtwork.published_text"></input>
+          <input type="text" placeholder="{{ 'ARTWORK.PUBLISHED_PH' | translate}}" class="form-control" ng-model="editingArtwork.published_description"></input>
           <span class="input-group-btn">
             <span type="button" class="btn btn-default disabled" ><i class="glyphicon glyphicon-calendar"></i></span>
           </span>
