@@ -40,7 +40,8 @@
     "PUBLISHED": "Publicado Online",
     "ENABLED": "Sí",
     "DISABLED": "No",
-    "ADD_NEW": "Crear Galería"
+    "ADD_NEW": "Crear Galería",
+    "SAVED": "Galería Guardada!"
   },
   "ARTWORK": {
     "EDIT": "Editar",

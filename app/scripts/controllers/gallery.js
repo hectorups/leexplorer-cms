@@ -8,8 +8,8 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('GalleryCtrl', ['$scope', '$window', '$routeParams', '$location', 'Gallery', '$modal', 
-  function ($scope, $window, $routeParams, $location, Gallery, $modal) {
+  .controller('GalleryCtrl', ['$scope', '$window', '$routeParams', '$location', 'Gallery', '$modal', '$translate',
+  function ($scope, $window, $routeParams, $location, Gallery, $modal, $translate) {
     $scope.galleryId = $routeParams.id;
     $scope.gallery = null; 
     $scope.artworks = []; 
@@ -59,7 +59,9 @@ angular.module('leexplorerFrontendApp')
       $scope.editingGallery.$save(function() {
         $scope.gallery = $scope.editingGallery;
         $scope.isEditing = false;
-        $scope.alerts.push({type: 'success', msg: 'Gallery Saved!'});
+        $translate('GALLERY.SAVED').then( function(translation) {
+          $scope.alerts.push({type: 'success', msg: translation});
+        });
       });
     };
 

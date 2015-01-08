@@ -94,7 +94,7 @@
             <cl-image class="thumbnail" public-id="{{editingArtwork.image.public_id}}" crop="fill" height="150" width="200" format="jpg"/>
           </div>
           
-          <le-uploader upload-completed="imageUploaded(data)" tags="editingArtwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_IMAGE' | translate}}"></le-uploader>
+          <le-uploader upload-completed="imageUploaded(data)" accept="image/*" tags="editingArtwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_IMAGE' | translate}}" accept="image/*"></le-uploader>
         </div>
       </div>
 
@@ -111,7 +111,7 @@
           </div>
 
           <div>
-            <le-uploader upload-completed="audioUploaded(data)" tags="editingArtwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_AUDIO' | translate}}"></le-uploader>
+            <le-uploader upload-completed="audioUploaded(data)" ng-model="myFiles" tags="editingArtwork.gallery_id" prompt="{{'ARTWORK.UPLOAD_AUDIO' | translate}}" accept="audio/*"></le-uploader>
           </div>
         </div>
       </div>

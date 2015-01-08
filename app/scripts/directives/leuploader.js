@@ -14,26 +14,39 @@ angular.module('leexplorerFrontendApp')
       scope: {
         callback: '&uploadCompleted',
         tags: '=',
-        prompt: '@'
+        prompt: '@',
+        accept: '@'
       },
       controller: function($scope, $translate) {
+
+        var typeMatch = function(type, expresion) {
+          var regex = (new RegExp("\." + type + "$","g"));
+          if(regex.test(type)) {
+            return true;
+          }
+
+          return false;
+        };
         
+
+
         $scope.onFileSelect = function($files) {
           var file = $files[0];
-          $scope.upload = $upload.upload({
-            url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
-            data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.tags},
-            withCredentials: false,
-            file: file
-          }).progress(function (e) {
-            $scope.progress = Math.round((e.loaded * 100.0) / e.total);
-            $translate('UPLOADER.STATUS', {percentage: $scope.progress}).then( function(translation) {
-              $scope.status = translation;
-            });
-          }).success(function (data, status, headers, config) {
-            $scope.progress = 0;
-            $scope.callback({data: data});
-          });
+
+          // $scope.upload = $upload.upload({
+          //   url: "https://api.cloudinary.com/v1_1/" + $.cloudinary.config().cloud_name + "/upload",
+          //   data: {upload_preset: $.cloudinary.config().upload_preset, tags: $scope.tags},
+          //   withCredentials: false,
+          //   file: file
+          // }).progress(function (e) {
+          //   $scope.progress = Math.round((e.loaded * 100.0) / e.total);
+          //   $translate('UPLOADER.STATUS', {percentage: $scope.progress}).then( function(translation) {
+          //     $scope.status = translation;
+          //   });
+          // }).success(function (data, status, headers, config) {
+          //   $scope.progress = 0;
+          //   $scope.callback({data: data});
+          // });
         };
       }
     };
