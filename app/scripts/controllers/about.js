@@ -9,5 +9,6 @@
  */
 angular.module('leexplorerFrontendApp')
   .controller('AboutCtrl', ['$scope', function ($scope) {
+    $scope.app = "leexplorer";
 
   }]);

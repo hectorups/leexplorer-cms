@@ -1,22 +1,21 @@
-'use strict';
+describe("AboutCtrl", function() {
 
-describe('Controller: AboutCtrl', function () {
-
-  // load the controller's module
+  var scope;
+  var ctrl;
+   
   beforeEach(module('leexplorerFrontendApp'));
-
-  var AboutCtrl,
-    scope;
-
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
+  beforeEach(inject(function($rootScope, $controller) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
-      $scope: scope
-    });
+    ctrl = $controller('AboutCtrl', {$scope: scope});
   }));
+  afterEach(function() { });
 
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
+  it('should succeed', function() { 
+  	expect(true).to.be.true; 
   });
+
+  it('should have app scope', function() {
+    expect(scope.app).to.equal('leexplorer');
+  });
+
 });
