@@ -63,7 +63,8 @@
     "DISABLED": "NO",
     "ADD_NEW": "New Artwork",
     "PUBLISHED_TEXT": "Creation Period",
-    "PUBLISHED_PH": "eg: 50-40 bc"
+    "PUBLISHED_PH": "eg: 50-40 bc",
+    "BACK": "Back to Gallery"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Danger!",

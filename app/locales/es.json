@@ -63,7 +63,8 @@
     "DISABLED": "No",
     "ADD_NEW": "Nueva Obra",
     "PUBLISHED_TEXT": "Fecha de Creación",
-    "PUBLISHED_PH": "ejemplo: 50-40 bc"
+    "PUBLISHED_PH": "ejemplo: 50-40 bc",
+    "BACK": "Regresar a Galería"
   },
   "CONFIRM_MODAL": {
     "TITLE": "Peligro!",

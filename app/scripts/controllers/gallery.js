@@ -16,6 +16,7 @@ angular.module('leexplorerFrontendApp')
     $scope.editingGallery = null;
     $scope.isEditing = !$scope.galleryId;
     $scope.alerts = [];
+    $scope.artworksTabSelected = _.last($location.path().split("/")) == "artworks";
 
     function loadGalleryInfo() {
       if($scope.galleryId) {

@@ -12,6 +12,7 @@ angular.module('leexplorerFrontendApp')
   function ($scope, $window, $routeParams, $location, Artwork, $modal, $upload, ngAudio) {
     $scope.artwork = null;
     $scope.artworkId = $routeParams.id;
+    $scope.galleryId = $routeParams.gallery_id;
 
     function loadArtwork() {
       if($scope.artworkId) {
@@ -20,7 +21,7 @@ angular.module('leexplorerFrontendApp')
         });
       } else {
         $scope.editingArtwork = new Artwork();
-        $scope.editingArtwork.gallery = $routeParams.gallery_id;
+        $scope.editingArtwork.gallery = $scope.galleryId;
         $scope.editingArtwork.likes_count = 0;
       }
       
