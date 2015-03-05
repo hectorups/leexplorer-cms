@@ -8,8 +8,8 @@
  * Controller of the leexplorerFrontendApp
  */
 angular.module('leexplorerFrontendApp')
-  .controller('ArtworkCtrl', ['$scope', '$window', '$routeParams', '$location', 'Artwork', '$modal', '$upload', 'ngAudio', 
-  function ($scope, $window, $routeParams, $location, Artwork, $modal, $upload, ngAudio) {
+  .controller('ArtworkCtrl', ['$scope', '$window', '$routeParams', '$location', 'Artwork', '$modal', 'ngAudio', 
+  function ($scope, $window, $routeParams, $location, Artwork, $modal, ngAudio) {
     $scope.artwork = null;
     $scope.artworkId = $routeParams.id;
     $scope.galleryId = $routeParams.gallery_id;
